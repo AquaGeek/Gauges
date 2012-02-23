@@ -12,7 +12,9 @@
 
 @interface GaugeDetailViewController()
 
-@property (nonatomic, weak) IBOutlet UILabel *descriptionLabel;
+@property (nonatomic, weak) IBOutlet UILabel *currentTabTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *gaugeTitleLabel;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
 
@@ -22,7 +24,9 @@
 @implementation GaugeDetailViewController
 
 @synthesize gauge = _gauge;
-@synthesize descriptionLabel = _descriptionLabel;
+@synthesize currentTabTitleLabel = _currentTabTitleLabel;
+@synthesize gaugeTitleLabel = _gaugeTitleLabel;
+@synthesize tableView = _tableView;
 
 #pragma mark - Object Lifecycle
 
@@ -52,6 +56,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white"]];
     
     // Force the KVO to fire
     self.gauge = self.gauge;
@@ -102,8 +108,34 @@
     
     if ([keyPath isEqualToString:@"gauge.title"])
     {
-        self.descriptionLabel.text = self.gauge.title;
+        self.gaugeTitleLabel.text = self.gauge.title;
     }
+}
+
+
+#pragma mark - UITableView Data Source Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"TestCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // TODO: Configure cell
+    
+    return cell;
+}
+
+#pragma mark Delegate Methods
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = (indexPath.row % 2 == 0) ? [UIColor colorWithWhite:0.5f alpha:0.2f] : [UIColor clearColor];
 }
 
 @end
