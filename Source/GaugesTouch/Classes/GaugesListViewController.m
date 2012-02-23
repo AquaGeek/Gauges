@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Tyler Stromberg. All rights reserved.
 //
 
-#import "MasterViewController.h"
+#import "GaugesListViewController.h"
 
-@implementation MasterViewController
+@implementation GaugesListViewController
 
 
 - (void)awakeFromNib
