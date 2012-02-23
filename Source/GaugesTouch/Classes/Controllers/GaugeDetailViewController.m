@@ -16,6 +16,9 @@
 
 @end
 
+
+#pragma mark -
+
 @implementation GaugeDetailViewController
 
 @synthesize gauge = _gauge;
@@ -89,19 +92,6 @@
 
 
 #pragma mark -
-
-//- (void)setGauge:(Gauge *)gauge
-//{
-//    if (![_gauge isEqual:gauge])
-//    {
-//        _gauge = gauge;
-//        
-//        if ([self isViewLoaded])
-//        {
-//            // TODO: Update the view?
-//        }
-//    }
-//}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
