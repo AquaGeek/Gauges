@@ -12,12 +12,12 @@
 		2F178CF814F5E207006CFDF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F178CF714F5E207006CFDF7 /* CoreGraphics.framework */; };
 		2F178D1A14F5E25A006CFDF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D1514F5E259006CFDF7 /* AppDelegate.m */; };
 		2F178D1B14F5E25A006CFDF7 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D1714F5E259006CFDF7 /* DetailViewController.m */; };
-		2F178D1C14F5E25A006CFDF7 /* GaugesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D1914F5E259006CFDF7 /* GaugesListViewController.m */; };
 		2F178D2214F5E25E006CFDF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D1E14F5E25E006CFDF7 /* InfoPlist.strings */; };
 		2F178D2314F5E25E006CFDF7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D2014F5E25E006CFDF7 /* MainStoryboard.storyboard */; };
 		2F178D2914F5E274006CFDF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2714F5E274006CFDF7 /* main.m */; };
 		2F178D2D14F5E81F006CFDF7 /* Gauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2C14F5E81F006CFDF7 /* Gauge.m */; };
 		2F178D3014F5EB8C006CFDF7 /* Traffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2F14F5EB8C006CFDF7 /* Traffic.m */; };
+		2F178D3914F5F1B1006CFDF7 /* GaugesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +29,6 @@
 		2F178D1514F5E259006CFDF7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2F178D1614F5E259006CFDF7 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2F178D1714F5E259006CFDF7 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		2F178D1814F5E259006CFDF7 /* GaugesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = GaugesListViewController.h; sourceTree = "<group>"; };
-		2F178D1914F5E259006CFDF7 /* GaugesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaugesListViewController.m; sourceTree = "<group>"; };
 		2F178D1F14F5E25E006CFDF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F178D2114F5E25E006CFDF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		2F178D2514F5E274006CFDF7 /* GaugesTouch-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GaugesTouch-Info.plist"; sourceTree = "<group>"; };
@@ -40,6 +38,8 @@
 		2F178D2C14F5E81F006CFDF7 /* Gauge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gauge.m; sourceTree = "<group>"; };
 		2F178D2E14F5EB8C006CFDF7 /* Traffic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Traffic.h; sourceTree = "<group>"; };
 		2F178D2F14F5EB8C006CFDF7 /* Traffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Traffic.m; sourceTree = "<group>"; };
+		2F178D3714F5F1B1006CFDF7 /* GaugesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugesListViewController.h; sourceTree = "<group>"; };
+		2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaugesListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +90,7 @@
 			children = (
 				2F178D1414F5E259006CFDF7 /* AppDelegate.h */,
 				2F178D1514F5E259006CFDF7 /* AppDelegate.m */,
-				2F178D1814F5E259006CFDF7 /* GaugesListViewController.h */,
-				2F178D1914F5E259006CFDF7 /* GaugesListViewController.m */,
+				2F178D3614F5F1B1006CFDF7 /* Controllers */,
 				2F178D1614F5E259006CFDF7 /* DetailViewController.h */,
 				2F178D1714F5E259006CFDF7 /* DetailViewController.m */,
 				2F178D2A14F5E811006CFDF7 /* Models */,
@@ -127,6 +126,15 @@
 				2F178D2F14F5EB8C006CFDF7 /* Traffic.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2F178D3614F5F1B1006CFDF7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F178D3714F5F1B1006CFDF7 /* GaugesListViewController.h */,
+				2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,10 +202,10 @@
 			files = (
 				2F178D1A14F5E25A006CFDF7 /* AppDelegate.m in Sources */,
 				2F178D1B14F5E25A006CFDF7 /* DetailViewController.m in Sources */,
-				2F178D1C14F5E25A006CFDF7 /* GaugesListViewController.m in Sources */,
 				2F178D2914F5E274006CFDF7 /* main.m in Sources */,
 				2F178D2D14F5E81F006CFDF7 /* Gauge.m in Sources */,
 				2F178D3014F5EB8C006CFDF7 /* Traffic.m in Sources */,
+				2F178D3914F5F1B1006CFDF7 /* GaugesListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
