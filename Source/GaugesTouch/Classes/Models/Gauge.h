@@ -14,5 +14,11 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *timeZoneName;
 @property (nonatomic, getter = isEnabled) BOOL enabled;
+@property (nonatomic, strong, readonly) NSArray *traffic;
+
+// Designated initializer
+- (id)initWithDictionary:(NSDictionary *)dictionary;
+
+- (void)refreshTrafficWithHandler:(void (^)(NSError *error))completionHandler;
 
 @end
