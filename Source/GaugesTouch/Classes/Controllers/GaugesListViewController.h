@@ -10,4 +10,6 @@
 
 @interface GaugesListViewController : UITableViewController
 
+@property (nonatomic, strong, readonly) NSArray *gauges;
+
 @end

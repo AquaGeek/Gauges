@@ -8,8 +8,35 @@
 
 #import "GaugesListViewController.h"
 
+#import "Gauge.h"
+
+@interface GaugesListViewController()
+
+@property (nonatomic, strong, readwrite) NSArray *gauges;
+
+@end
+
+
+#pragma mark -
+
 @implementation GaugesListViewController
 
+@synthesize gauges = _gauges;
+
+#pragma mark Object Lifecycle
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super initWithCoder:aDecoder]))
+    {
+        NSDictionary *gaugeDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Gauge 1", @"title", nil];
+        NSDictionary *gaugeDict2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Test Gauge", @"title", nil];
+        _gauges = [NSArray arrayWithObjects:[[Gauge alloc] initWithDictionary:gaugeDict],
+                   [[Gauge alloc] initWithDictionary:gaugeDict2], nil];
+    }
+    
+    return self;
+}
 
 - (void)awakeFromNib
 {
@@ -22,12 +49,16 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-#pragma mark - View lifecycle
+#pragma mark View Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    UIView *bgView = [[UIView alloc] init];
+    bgView.backgroundColor = [UIColor viewFlipsideBackgroundColor];
+    bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.tableView.backgroundView = bgView;
 }
 
 - (void)viewDidUnload
@@ -60,45 +91,42 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source.
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-    }   
-}
-*/
+#pragma mark -
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([segue.identifier isEqualToString:@"GaugeDetailSegue"])
+    {
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
+        Gauge *gauge = [self.gauges objectAtIndex:selectedIndexPath.row];
+#pragma unused(gauge)
+        // TODO: Pass the selected gauge to the detail view
+    }
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+
+#pragma mark - UITableView Data Source Methods
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    return self.gauges.count;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"GaugeCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    // TODO: Pass on the gauge
+    Gauge *gauge = [self.gauges objectAtIndex:indexPath.row];
+//    cell.textLabel.text = gauge.title;
+    
+    return cell;
+}
 
 @end
