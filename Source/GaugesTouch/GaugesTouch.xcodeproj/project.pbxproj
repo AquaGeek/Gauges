@@ -18,6 +18,8 @@
 		2F178D2D14F5E81F006CFDF7 /* Gauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2C14F5E81F006CFDF7 /* Gauge.m */; };
 		2F178D3014F5EB8C006CFDF7 /* Traffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2F14F5EB8C006CFDF7 /* Traffic.m */; };
 		2F178D3914F5F1B1006CFDF7 /* GaugesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */; };
+		2F178D3D14F5F65A006CFDF7 /* gauge_cell_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D3B14F5F65A006CFDF7 /* gauge_cell_bg.png */; };
+		2F178D3E14F5F65A006CFDF7 /* gauge_cell_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D3C14F5F65A006CFDF7 /* gauge_cell_bg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		2F178D2F14F5EB8C006CFDF7 /* Traffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Traffic.m; sourceTree = "<group>"; };
 		2F178D3714F5F1B1006CFDF7 /* GaugesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugesListViewController.h; sourceTree = "<group>"; };
 		2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaugesListViewController.m; sourceTree = "<group>"; };
+		2F178D3B14F5F65A006CFDF7 /* gauge_cell_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gauge_cell_bg.png; sourceTree = "<group>"; };
+		2F178D3C14F5F65A006CFDF7 /* gauge_cell_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gauge_cell_bg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 			children = (
 				2F178D1E14F5E25E006CFDF7 /* InfoPlist.strings */,
 				2F178D2014F5E25E006CFDF7 /* MainStoryboard.storyboard */,
+				2F178D3A14F5F65A006CFDF7 /* Images */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -135,6 +140,15 @@
 				2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2F178D3A14F5F65A006CFDF7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2F178D3B14F5F65A006CFDF7 /* gauge_cell_bg.png */,
+				2F178D3C14F5F65A006CFDF7 /* gauge_cell_bg@2x.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +204,8 @@
 			files = (
 				2F178D2214F5E25E006CFDF7 /* InfoPlist.strings in Resources */,
 				2F178D2314F5E25E006CFDF7 /* MainStoryboard.storyboard in Resources */,
+				2F178D3D14F5F65A006CFDF7 /* gauge_cell_bg.png in Resources */,
+				2F178D3E14F5F65A006CFDF7 /* gauge_cell_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
