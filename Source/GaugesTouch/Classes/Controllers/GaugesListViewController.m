@@ -58,7 +58,7 @@
     [super viewDidLoad];
     
     UIView *bgView = [[UIView alloc] init];
-    bgView.backgroundColor = [UIColor viewFlipsideBackgroundColor];
+    bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"black_linen_v2"]];
     bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.tableView.backgroundView = bgView;
 }
