@@ -9,6 +9,7 @@
 #import "GaugesListViewController.h"
 
 #import "Gauge.h"
+#import "GaugeCell.h"
 #import "GaugeDetailViewController.h"
 
 @interface GaugesListViewController()
@@ -120,11 +121,11 @@
 {
     static NSString *CellIdentifier = @"GaugeCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    GaugeCell *cell = (GaugeCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    // TODO: Pass on the gauge
+    // Configure the cell
     Gauge *gauge = [self.gauges objectAtIndex:indexPath.row];
-//    cell.textLabel.text = gauge.title;
+    cell.gauge = gauge;
     
     return cell;
 }
