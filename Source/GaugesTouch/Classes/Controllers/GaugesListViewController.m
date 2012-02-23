@@ -9,6 +9,7 @@
 #import "GaugesListViewController.h"
 
 #import "Gauge.h"
+#import "GaugeDetailViewController.h"
 
 @interface GaugesListViewController()
 
@@ -103,8 +104,7 @@
     {
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForSelectedRow];
         Gauge *gauge = [self.gauges objectAtIndex:selectedIndexPath.row];
-#pragma unused(gauge)
-        // TODO: Pass the selected gauge to the detail view
+        ((GaugeDetailViewController *)segue.destinationViewController).gauge = gauge;
     }
 }
 
