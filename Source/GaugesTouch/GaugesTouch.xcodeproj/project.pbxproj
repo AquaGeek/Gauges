@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F178CF414F5E207006CFDF7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F178CF314F5E207006CFDF7 /* UIKit.framework */; };
+		2F178CF614F5E207006CFDF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F178CF514F5E207006CFDF7 /* Foundation.framework */; };
+		2F178CF814F5E207006CFDF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F178CF714F5E207006CFDF7 /* CoreGraphics.framework */; };
+		2F178D1A14F5E25A006CFDF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D1514F5E259006CFDF7 /* AppDelegate.m */; };
+		2F178D1B14F5E25A006CFDF7 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D1714F5E259006CFDF7 /* DetailViewController.m */; };
+		2F178D1C14F5E25A006CFDF7 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D1914F5E259006CFDF7 /* MasterViewController.m */; };
+		2F178D2214F5E25E006CFDF7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D1E14F5E25E006CFDF7 /* InfoPlist.strings */; };
+		2F178D2314F5E25E006CFDF7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D2014F5E25E006CFDF7 /* MainStoryboard.storyboard */; };
+		2F178D2914F5E274006CFDF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2714F5E274006CFDF7 /* main.m */; };
+		2F178D2D14F5E81F006CFDF7 /* Gauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2C14F5E81F006CFDF7 /* Gauge.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2F178CEF14F5E207006CFDF7 /* GaugesTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaugesTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F178CF314F5E207006CFDF7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2F178CF514F5E207006CFDF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2F178CF714F5E207006CFDF7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2F178D1414F5E259006CFDF7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2F178D1514F5E259006CFDF7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2F178D1614F5E259006CFDF7 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		2F178D1714F5E259006CFDF7 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		2F178D1814F5E259006CFDF7 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		2F178D1914F5E259006CFDF7 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		2F178D1F14F5E25E006CFDF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F178D2114F5E25E006CFDF7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		2F178D2514F5E274006CFDF7 /* GaugesTouch-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GaugesTouch-Info.plist"; sourceTree = "<group>"; };
+		2F178D2614F5E274006CFDF7 /* GaugesTouch-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GaugesTouch-Prefix.pch"; sourceTree = "<group>"; };
+		2F178D2714F5E274006CFDF7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2F178D2B14F5E81F006CFDF7 /* Gauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gauge.h; sourceTree = "<group>"; };
+		2F178D2C14F5E81F006CFDF7 /* Gauge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gauge.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F178CEC14F5E207006CFDF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F178CF414F5E207006CFDF7 /* UIKit.framework in Frameworks */,
+				2F178CF614F5E207006CFDF7 /* Foundation.framework in Frameworks */,
+				2F178CF814F5E207006CFDF7 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F178CE414F5E207006CFDF7 = {
+			isa = PBXGroup;
+			children = (
+				2F178D1314F5E259006CFDF7 /* Classes */,
+				2F178D1D14F5E25E006CFDF7 /* Resources */,
+				2F178D2414F5E264006CFDF7 /* Supporting Files */,
+				2F178CF214F5E207006CFDF7 /* Frameworks */,
+				2F178CF014F5E207006CFDF7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F178CF014F5E207006CFDF7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F178CEF14F5E207006CFDF7 /* GaugesTouch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F178CF214F5E207006CFDF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F178CF314F5E207006CFDF7 /* UIKit.framework */,
+				2F178CF514F5E207006CFDF7 /* Foundation.framework */,
+				2F178CF714F5E207006CFDF7 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F178D1314F5E259006CFDF7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2F178D1414F5E259006CFDF7 /* AppDelegate.h */,
+				2F178D1514F5E259006CFDF7 /* AppDelegate.m */,
+				2F178D1814F5E259006CFDF7 /* MasterViewController.h */,
+				2F178D1914F5E259006CFDF7 /* MasterViewController.m */,
+				2F178D1614F5E259006CFDF7 /* DetailViewController.h */,
+				2F178D1714F5E259006CFDF7 /* DetailViewController.m */,
+				2F178D2A14F5E811006CFDF7 /* Models */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2F178D1D14F5E25E006CFDF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2F178D1E14F5E25E006CFDF7 /* InfoPlist.strings */,
+				2F178D2014F5E25E006CFDF7 /* MainStoryboard.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2F178D2414F5E264006CFDF7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F178D2514F5E274006CFDF7 /* GaugesTouch-Info.plist */,
+				2F178D2614F5E274006CFDF7 /* GaugesTouch-Prefix.pch */,
+				2F178D2714F5E274006CFDF7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F178D2A14F5E811006CFDF7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2F178D2B14F5E81F006CFDF7 /* Gauge.h */,
+				2F178D2C14F5E81F006CFDF7 /* Gauge.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F178CEE14F5E207006CFDF7 /* GaugesTouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F178D1014F5E207006CFDF7 /* Build configuration list for PBXNativeTarget "GaugesTouch" */;
+			buildPhases = (
+				2F178CEB14F5E207006CFDF7 /* Sources */,
+				2F178CEC14F5E207006CFDF7 /* Frameworks */,
+				2F178CED14F5E207006CFDF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GaugesTouch;
+			productName = GaugesTouch;
+			productReference = 2F178CEF14F5E207006CFDF7 /* GaugesTouch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F178CE614F5E207006CFDF7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Tyler Stromberg";
+			};
+			buildConfigurationList = 2F178CE914F5E207006CFDF7 /* Build configuration list for PBXProject "GaugesTouch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2F178CE414F5E207006CFDF7;
+			productRefGroup = 2F178CF014F5E207006CFDF7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F178CEE14F5E207006CFDF7 /* GaugesTouch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F178CED14F5E207006CFDF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F178D2214F5E25E006CFDF7 /* InfoPlist.strings in Resources */,
+				2F178D2314F5E25E006CFDF7 /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F178CEB14F5E207006CFDF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F178D1A14F5E25A006CFDF7 /* AppDelegate.m in Sources */,
+				2F178D1B14F5E25A006CFDF7 /* DetailViewController.m in Sources */,
+				2F178D1C14F5E25A006CFDF7 /* MasterViewController.m in Sources */,
+				2F178D2914F5E274006CFDF7 /* main.m in Sources */,
+				2F178D2D14F5E81F006CFDF7 /* Gauge.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2F178D1E14F5E25E006CFDF7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F178D1F14F5E25E006CFDF7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2F178D2014F5E25E006CFDF7 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F178D2114F5E25E006CFDF7 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F178D0E14F5E207006CFDF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		2F178D0F14F5E207006CFDF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F178D1114F5E207006CFDF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GaugesTouch-Prefix.pch";
+				INFOPLIST_FILE = "GaugesTouch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2F178D1214F5E207006CFDF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GaugesTouch-Prefix.pch";
+				INFOPLIST_FILE = "GaugesTouch-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F178CE914F5E207006CFDF7 /* Build configuration list for PBXProject "GaugesTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F178D0E14F5E207006CFDF7 /* Debug */,
+				2F178D0F14F5E207006CFDF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F178D1014F5E207006CFDF7 /* Build configuration list for PBXNativeTarget "GaugesTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F178D1114F5E207006CFDF7 /* Debug */,
+				2F178D1214F5E207006CFDF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F178CE614F5E207006CFDF7 /* Project object */;
+}
