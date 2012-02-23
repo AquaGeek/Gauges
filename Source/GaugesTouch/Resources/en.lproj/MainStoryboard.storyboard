@@ -79,12 +79,18 @@
                                             <nil key="highlightedColor"/>
                                             <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <view opaque="NO" contentMode="scaleToFill" id="crV-B5-60e">
+                                            <rect key="frame" x="300" y="0.0" width="20" height="77"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="backgroundView" destination="zqd-to-txT" id="Ya7-IC-u8p"/>
+                                    <outlet property="selectedBackgroundView" destination="crV-B5-60e" id="0W0-sk-2As"/>
                                     <segue destination="21" kind="push" identifier="GaugeDetailSegue" id="ljf-MY-KWf"/>
                                 </connections>
                             </tableViewCell>
