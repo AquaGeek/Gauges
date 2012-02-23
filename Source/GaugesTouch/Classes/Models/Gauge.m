@@ -10,4 +10,9 @@
 
 @implementation Gauge
 
+@synthesize gaugeID = _gaugeID;
+@synthesize title = _title;
+@synthesize timeZoneName = _timeZoneName;
+@synthesize enabled = _enabled;
+
 @end

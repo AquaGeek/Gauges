@@ -10,4 +10,9 @@
 
 @interface Gauge : NSObject
 
+@property (nonatomic, strong) NSString *gaugeID;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *timeZoneName;
+@property (nonatomic, strong, getter = isEnabled) BOOL enabled;
+
 @end
