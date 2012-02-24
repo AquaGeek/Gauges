@@ -70,16 +70,16 @@
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         //!!! TEMP: Fake some traffic
-        NSDictionary *todaysTrafficDict = [NSDictionary dictionaryWithObjectsAndKeys:@"2012-02-23", @"date",
+        NSDictionary *todaysTrafficDict = [NSDictionary dictionaryWithObjectsAndKeys:@"2012-01-30", @"date",
                                            [NSNumber numberWithLong:rand() % 1000 + 1000], @"views",
                                            [NSNumber numberWithLong:rand() % 1000], @"people", nil];
         self.todayTraffic = [[DatedViewSummary alloc] initWithDictionary:todaysTrafficDict];
         
         NSMutableArray *newTraffic = [NSMutableArray arrayWithCapacity:30];
         
-        for (NSInteger i = 1; i < 23; i++)
+        for (NSInteger i = 1; i < 30; i++)
         {
-            NSString *dateString = [NSString stringWithFormat:@"2012-02-%02d", i];
+            NSString *dateString = [NSString stringWithFormat:@"2012-01-%02d", i];
             NSDictionary *trafficDict = [NSDictionary dictionaryWithObjectsAndKeys:dateString, @"date",
                                          [NSNumber numberWithLong:rand() % 1000 + 1000], @"views",
                                          [NSNumber numberWithLong:rand() % 1000], @"people", nil];
