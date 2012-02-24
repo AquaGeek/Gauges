@@ -1,23 +1,24 @@
 //
-//  Traffic.m
+//  DatedViewSummary.m
 //  GaugesTouch
 //
 //  Created by Tyler Stromberg on 2/22/12.
 //  Copyright (c) 2012 Tyler Stromberg. All rights reserved.
 //
 
-#import "Traffic.h"
+#import "DatedViewSummary.h"
 
-@interface Traffic()
+@interface DatedViewSummary()
 
 @property (nonatomic, strong, readonly) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong, readonly) NSNumberFormatter *numberFormatter;
 
 @end
 
 
 #pragma mark -
 
-@implementation Traffic
+@implementation DatedViewSummary
 
 @synthesize date = _date;
 @synthesize views = _views;
@@ -50,6 +51,29 @@
     });
     
     return dateFormatter;
+}
+
+- (NSNumberFormatter *)numberFormatter
+{
+    static NSNumberFormatter *numberFormatter = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    });
+    
+    return numberFormatter;
+}
+
+- (NSString *)formattedViews
+{
+    return [self.numberFormatter stringFromNumber:[NSNumber numberWithUnsignedLongLong:self.views]];
+}
+
+- (NSString *)formattedPeople
+{
+    return [self.numberFormatter stringFromNumber:[NSNumber numberWithUnsignedLongLong:self.people]];
 }
 
 @end

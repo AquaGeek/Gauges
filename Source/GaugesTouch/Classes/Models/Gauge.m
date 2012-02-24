@@ -8,11 +8,12 @@
 
 #import "Gauge.h"
 
-#import "Traffic.h"
+#import "DatedViewSummary.h"
 
 @interface Gauge()
 
-@property (nonatomic, strong, readwrite) NSArray *traffic;
+@property (nonatomic, strong, readwrite) DatedViewSummary *todayTraffic;
+@property (nonatomic, strong, readwrite) NSArray *recentTraffic;
 
 @end
 
@@ -25,7 +26,8 @@
 @synthesize title = _title;
 @synthesize timeZoneName = _timeZoneName;
 @synthesize enabled = _enabled;
-@synthesize traffic = _traffic;
+@synthesize todayTraffic = _todayTraffic;
+@synthesize recentTraffic = _recentTraffic;
 
 
 #pragma mark - Object Lifecycle
@@ -48,21 +50,35 @@
 
 - (void)refreshTrafficWithHandler:(void (^)(NSError *error))completionHandler
 {
-    //!!! TEMP: Fake some traffic
-    NSMutableArray *newTraffic = [NSMutableArray arrayWithCapacity:30];
-    
-    for (NSInteger i = 1; i < 24; i++)
-    {
-        NSString *dateString = [NSString stringWithFormat:@"2012-02-%02d", i];
-        NSDictionary *trafficDict = [NSDictionary dictionaryWithObjectsAndKeys:dateString, @"date",
-                                     [NSNumber numberWithInt:1234], @"views",
-                                     [NSNumber numberWithInt:321], @"people", nil];
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //!!! TEMP: Fake some traffic
+        NSDictionary *todaysTrafficDict = [NSDictionary dictionaryWithObjectsAndKeys:@"2012-02-23", @"date",
+                                           [NSNumber numberWithUnsignedLongLong:654321], @"views",
+                                           [NSNumber numberWithUnsignedLongLong:123456], @"people", nil];
+        self.todayTraffic = [[DatedViewSummary alloc] initWithDictionary:todaysTrafficDict];
         
-        Traffic *traffic = [[Traffic alloc] initWithDictionary:trafficDict];
-        [newTraffic addObject:traffic];
-    }
-    
-    self.traffic = newTraffic;
+        NSMutableArray *newTraffic = [NSMutableArray arrayWithCapacity:30];
+        
+        for (NSInteger i = 1; i < 24; i++)
+        {
+            NSString *dateString = [NSString stringWithFormat:@"2012-02-%02d", i];
+            NSDictionary *trafficDict = [NSDictionary dictionaryWithObjectsAndKeys:dateString, @"date",
+                                         [NSNumber numberWithInt:1234], @"views",
+                                         [NSNumber numberWithInt:321], @"people", nil];
+            
+            DatedViewSummary *traffic = [[DatedViewSummary alloc] initWithDictionary:trafficDict];
+            [newTraffic addObject:traffic];
+        }
+        
+        self.recentTraffic = newTraffic;
+        
+        if (completionHandler != nil)
+        {
+            completionHandler(nil);
+        }
+    });
 }
 
 @end
