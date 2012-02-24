@@ -61,6 +61,12 @@
     bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"black_linen_v2"]];
     bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.tableView.backgroundView = bgView;
+    
+    // Get rid of the additional cell dividers
+    UIView *footerView = [[UIView alloc] init];
+    footerView.backgroundColor = [UIColor clearColor];
+    footerView.opaque = NO;
+    self.tableView.tableFooterView = footerView;
 }
 
 - (void)viewDidUnload
