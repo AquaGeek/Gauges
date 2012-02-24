@@ -86,6 +86,11 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
+                                        <view contentMode="scaleToFill" id="ReQ-S2-yEa" customClass="TrafficBarGraph">
+                                            <rect key="frame" x="239" y="15" width="69" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -95,6 +100,7 @@
                                     <outlet property="peopleCountLabel" destination="Ctl-G8-7SO" id="jPQ-bL-xU7"/>
                                     <outlet property="selectedBackgroundView" destination="crV-B5-60e" id="0W0-sk-2As"/>
                                     <outlet property="titleLabel" destination="92W-Du-PaR" id="fX6-uU-XHv"/>
+                                    <outlet property="trafficBarGraph" destination="ReQ-S2-yEa" id="pnt-bF-xN9"/>
                                     <outlet property="viewsCountLabel" destination="SsV-Tn-Yej" id="ahU-U7-Fhq"/>
                                     <segue destination="21" kind="push" identifier="GaugeDetailSegue" id="ljf-MY-KWf"/>
                                 </connections>
@@ -259,6 +265,7 @@
             <relationships>
                 <relationship kind="outlet" name="peopleCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="trafficBarGraph" candidateClass="TrafficBarGraph"/>
                 <relationship kind="outlet" name="viewsCountLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -272,6 +279,9 @@
         </class>
         <class className="GaugesListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GaugesListViewController.h"/>
+        </class>
+        <class className="TrafficBarGraph" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficBarGraph.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

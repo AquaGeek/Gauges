@@ -8,14 +8,16 @@
 
 #import "GaugeCell.h"
 
-#import "Gauge.h"
 #import "DatedViewSummary.h"
+#import "Gauge.h"
+#import "TrafficBarGraph.h"
 
 @interface GaugeCell()
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *viewsCountLabel;
 @property (nonatomic, weak) IBOutlet UILabel *peopleCountLabel;
+@property (nonatomic, weak) IBOutlet TrafficBarGraph *trafficBarGraph;
 
 @end
 
@@ -29,6 +31,7 @@
 @synthesize titleLabel = _titleLabel;
 @synthesize viewsCountLabel = _viewsCountLabel;
 @synthesize peopleCountLabel = _peopleCountLabel;
+@synthesize trafficBarGraph = _trafficBarGraph;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -37,6 +40,7 @@
         [self addObserver:self forKeyPath:@"gauge.title" options:0 context:NULL];
         [self addObserver:self forKeyPath:@"gauge.todayTraffic.views" options:0 context:NULL];
         [self addObserver:self forKeyPath:@"gauge.todayTraffic.people" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"gauge.recentTraffic" options:0 context:NULL];
         
         // TODO: Listen for changes to the individual days as well
     }
@@ -49,10 +53,20 @@
     [self removeObserver:self forKeyPath:@"gauge.title"];
     [self removeObserver:self forKeyPath:@"gauge.todayTraffic.views"];
     [self removeObserver:self forKeyPath:@"gauge.todayTraffic.people"];
+    [self removeObserver:self forKeyPath:@"gauge.recentTraffic"];
 }
 
 
 #pragma mark -
+
+- (void)setGaugess:(Gauge *)gauge
+{
+    if (![_gauge isEqual:gauge])
+    {
+        _gauge = gauge;
+        self.trafficBarGraph.traffic = gauge.recentTraffic;
+    }
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
@@ -69,6 +83,10 @@
     {
         NSString *people = [self.gauge.todayTraffic formattedPeople];
         self.peopleCountLabel.text = (people == nil) ? @"0" : people;
+    }
+    else if ([keyPath isEqualToString:@"gauge.recentTraffic"])
+    {
+        self.trafficBarGraph.traffic = self.gauge.weekTraffic;
     }
 }
 
