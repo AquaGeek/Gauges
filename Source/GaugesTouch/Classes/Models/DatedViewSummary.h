@@ -1,5 +1,5 @@
 //
-//  Traffic.h
+//  DatedViewSummary.h
 //  GaugesTouch
 //
 //  Created by Tyler Stromberg on 2/22/12.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Traffic : NSObject
+@interface DatedViewSummary : NSObject
 
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic) uint64_t views;

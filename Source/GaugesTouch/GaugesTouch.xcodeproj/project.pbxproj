@@ -15,7 +15,7 @@
 		2F178D2314F5E25E006CFDF7 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D2014F5E25E006CFDF7 /* MainStoryboard.storyboard */; };
 		2F178D2914F5E274006CFDF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2714F5E274006CFDF7 /* main.m */; };
 		2F178D2D14F5E81F006CFDF7 /* Gauge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2C14F5E81F006CFDF7 /* Gauge.m */; };
-		2F178D3014F5EB8C006CFDF7 /* Traffic.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2F14F5EB8C006CFDF7 /* Traffic.m */; };
+		2F178D3014F5EB8C006CFDF7 /* DatedViewSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D2F14F5EB8C006CFDF7 /* DatedViewSummary.m */; };
 		2F178D3914F5F1B1006CFDF7 /* GaugesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */; };
 		2F178D4314F5FE30006CFDF7 /* GaugeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D4214F5FE30006CFDF7 /* GaugeDetailViewController.m */; };
 		2F178D4714F600D3006CFDF7 /* GaugeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F178D4614F600D3006CFDF7 /* GaugeCell.m */; };
@@ -59,8 +59,8 @@
 		2F178D2714F5E274006CFDF7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2F178D2B14F5E81F006CFDF7 /* Gauge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gauge.h; sourceTree = "<group>"; };
 		2F178D2C14F5E81F006CFDF7 /* Gauge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gauge.m; sourceTree = "<group>"; };
-		2F178D2E14F5EB8C006CFDF7 /* Traffic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Traffic.h; sourceTree = "<group>"; };
-		2F178D2F14F5EB8C006CFDF7 /* Traffic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Traffic.m; sourceTree = "<group>"; };
+		2F178D2E14F5EB8C006CFDF7 /* DatedViewSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatedViewSummary.h; sourceTree = "<group>"; };
+		2F178D2F14F5EB8C006CFDF7 /* DatedViewSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatedViewSummary.m; sourceTree = "<group>"; };
 		2F178D3714F5F1B1006CFDF7 /* GaugesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugesListViewController.h; sourceTree = "<group>"; };
 		2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaugesListViewController.m; sourceTree = "<group>"; };
 		2F178D4114F5FE30006CFDF7 /* GaugeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugeDetailViewController.h; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 			children = (
 				2F178D2B14F5E81F006CFDF7 /* Gauge.h */,
 				2F178D2C14F5E81F006CFDF7 /* Gauge.m */,
-				2F178D2E14F5EB8C006CFDF7 /* Traffic.h */,
-				2F178D2F14F5EB8C006CFDF7 /* Traffic.m */,
+				2F178D2E14F5EB8C006CFDF7 /* DatedViewSummary.h */,
+				2F178D2F14F5EB8C006CFDF7 /* DatedViewSummary.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -320,7 +320,7 @@
 				2F178D1A14F5E25A006CFDF7 /* AppDelegate.m in Sources */,
 				2F178D2914F5E274006CFDF7 /* main.m in Sources */,
 				2F178D2D14F5E81F006CFDF7 /* Gauge.m in Sources */,
-				2F178D3014F5EB8C006CFDF7 /* Traffic.m in Sources */,
+				2F178D3014F5EB8C006CFDF7 /* DatedViewSummary.m in Sources */,
 				2F178D3914F5F1B1006CFDF7 /* GaugesListViewController.m in Sources */,
 				2F178D4314F5FE30006CFDF7 /* GaugeDetailViewController.m in Sources */,
 				2F178D4714F600D3006CFDF7 /* GaugeCell.m in Sources */,

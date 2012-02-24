@@ -1,14 +1,14 @@
 //
-//  Traffic.m
+//  DatedViewSummary.m
 //  GaugesTouch
 //
 //  Created by Tyler Stromberg on 2/22/12.
 //  Copyright (c) 2012 Tyler Stromberg. All rights reserved.
 //
 
-#import "Traffic.h"
+#import "DatedViewSummary.h"
 
-@interface Traffic()
+@interface DatedViewSummary()
 
 @property (nonatomic, strong, readonly) NSDateFormatter *dateFormatter;
 
@@ -17,7 +17,7 @@
 
 #pragma mark -
 
-@implementation Traffic
+@implementation DatedViewSummary
 
 @synthesize date = _date;
 @synthesize views = _views;

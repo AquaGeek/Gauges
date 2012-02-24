@@ -8,7 +8,7 @@
 
 #import "Gauge.h"
 
-#import "Traffic.h"
+#import "DatedViewSummary.h"
 
 @interface Gauge()
 
@@ -58,7 +58,7 @@
                                      [NSNumber numberWithInt:1234], @"views",
                                      [NSNumber numberWithInt:321], @"people", nil];
         
-        Traffic *traffic = [[Traffic alloc] initWithDictionary:trafficDict];
+        DatedViewSummary *traffic = [[DatedViewSummary alloc] initWithDictionary:trafficDict];
         [newTraffic addObject:traffic];
     }
     
