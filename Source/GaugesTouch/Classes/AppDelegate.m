@@ -12,6 +12,19 @@
 
 @synthesize window = _window;
 
+- (id)init
+{
+    if ((self = [super init]))
+    {
+        // Set up any appearance proxies
+        UIImage *bgImage = [UIImage imageNamed:@"nav_bar_bg"]; //([UIScreen mainScreen].scale > 1.0f) ? 
+        NSLog(@"Image: %@", NSStringFromCGSize(bgImage.size));
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"nav_bar_bg"] forBarMetrics:UIBarMetricsDefault];
+    }
+    
+    return self;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.

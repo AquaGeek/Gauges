@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MasterViewController : UITableViewController
+@interface GaugesListViewController : UITableViewController
+
+@property (nonatomic, strong, readonly) NSArray *gauges;
 
 @end
