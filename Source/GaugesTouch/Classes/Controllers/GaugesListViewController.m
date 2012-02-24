@@ -84,6 +84,15 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    // Update our data
+    // TODO: Better handling - update periodically instead of every time the view is shown
+    for (Gauge *gauge in self.gauges)
+    {
+        [gauge refreshTrafficWithHandler:^(NSError *error) {
+            NSLog(@"Traffic refreshed for gauge '%@'", gauge.title);
+        }];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
