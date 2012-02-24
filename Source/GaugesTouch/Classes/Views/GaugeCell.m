@@ -9,6 +9,7 @@
 #import "GaugeCell.h"
 
 #import "Gauge.h"
+#import "DatedViewSummary.h"
 
 @interface GaugeCell()
 
@@ -29,16 +30,45 @@
 @synthesize viewsCountLabel = _viewsCountLabel;
 @synthesize peopleCountLabel = _peopleCountLabel;
 
-- (void)setGauge:(Gauge *)gauge
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    if (![_gauge isEqual:gauge])
+    if ((self = [super initWithCoder:aDecoder]))
     {
-        _gauge = gauge;
+        [self addObserver:self forKeyPath:@"gauge.title" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"gauge.todayTraffic.views" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"gauge.todayTraffic.people" options:0 context:NULL];
         
-        // Update the various labels
-        self.titleLabel.text = gauge.title;
-        self.viewsCountLabel.text = @"12,891";  // TODO: Use real values
-        self.peopleCountLabel.text = @"4,029";  // TODO: Use real values
+        // TODO: Listen for changes to the individual days as well
+    }
+    
+    return self;
+}
+
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"gauge.title"];
+    [self removeObserver:self forKeyPath:@"gauge.todayTraffic.views"];
+    [self removeObserver:self forKeyPath:@"gauge.todayTraffic.people"];
+}
+
+
+#pragma mark -
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"gauge.title"])
+    {
+        self.titleLabel.text = self.gauge.title;
+    }
+    else if ([keyPath isEqualToString:@"gauge.todayTraffic.views"])
+    {
+        NSString *views = [self.gauge.todayTraffic formattedViews];
+        self.viewsCountLabel.text = (views == nil) ? @"0" : views;
+    }
+    else if ([keyPath isEqualToString:@"gauge.todayTraffic.people"])
+    {
+        NSString *people = [self.gauge.todayTraffic formattedPeople];
+        self.peopleCountLabel.text = (people == nil) ? @"0" : people;
     }
 }
 
