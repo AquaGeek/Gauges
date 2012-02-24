@@ -11,8 +11,8 @@
 @interface DatedViewSummary : NSObject
 
 @property (nonatomic, strong) NSDate *date;
-@property (nonatomic) uint64_t views;
-@property (nonatomic) uint64_t people;
+@property (nonatomic) long views;
+@property (nonatomic) long people;
 
 - (NSString *)formattedViews;
 - (NSString *)formattedPeople;

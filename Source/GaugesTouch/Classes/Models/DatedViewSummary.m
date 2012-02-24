@@ -29,8 +29,8 @@
     if ((self = [super init]))
     {
         _date = [self.dateFormatter dateFromString:[dictionary valueForKey:@"date"]];
-        _views = [[dictionary valueForKey:@"views"] unsignedLongLongValue];
-        _people = [[dictionary valueForKey:@"people"] unsignedLongLongValue];
+        _views = [[dictionary valueForKey:@"views"] longValue];
+        _people = [[dictionary valueForKey:@"people"] longValue];
     }
     
     return self;
@@ -68,12 +68,12 @@
 
 - (NSString *)formattedViews
 {
-    return [self.numberFormatter stringFromNumber:[NSNumber numberWithUnsignedLongLong:self.views]];
+    return [self.numberFormatter stringFromNumber:[NSNumber numberWithLong:self.views]];
 }
 
 - (NSString *)formattedPeople
 {
-    return [self.numberFormatter stringFromNumber:[NSNumber numberWithUnsignedLongLong:self.people]];
+    return [self.numberFormatter stringFromNumber:[NSNumber numberWithLong:self.people]];
 }
 
 @end
