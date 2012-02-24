@@ -47,9 +47,10 @@ const CGFloat kXSpacing = 1.0f;
     
     CGRect barFrame = CGRectZero;
     
-    if (self.traffic.count > 0)
+    NSUInteger trafficCount = self.traffic.count;
+    if (trafficCount > 0)
     {
-        barFrame.size.width = ceilf((bounds.size.width / self.traffic.count) - kXSpacing);
+        barFrame.size.width = bounds.size.width / trafficCount - kXSpacing;
     }
     
     for (DatedViewSummary *dailyTraffic in self.traffic)

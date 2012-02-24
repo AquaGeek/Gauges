@@ -9,12 +9,14 @@
 #import "GaugeDetailViewController.h"
 
 #import "Gauge.h"
+#import "TrafficBarGraph.h"
 
 @interface GaugeDetailViewController()
 
 @property (nonatomic, weak) IBOutlet UILabel *currentTabTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gaugeTitleLabel;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet TrafficBarGraph *trafficBarGraph;
 
 @end
 
@@ -27,6 +29,7 @@
 @synthesize currentTabTitleLabel = _currentTabTitleLabel;
 @synthesize gaugeTitleLabel = _gaugeTitleLabel;
 @synthesize tableView = _tableView;
+@synthesize trafficBarGraph = _trafficBarGraph;
 
 #pragma mark - Object Lifecycle
 
@@ -58,6 +61,7 @@
     [super viewDidLoad];
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white"]];
+    self.trafficBarGraph.traffic = self.gauge.recentTraffic;
     
     // Force the KVO to fire
     self.gauge = self.gauge;
@@ -98,6 +102,19 @@
 
 
 #pragma mark -
+
+- (void)setGauge:(Gauge *)gauge
+{
+    if (![_gauge isEqual:gauge])
+    {
+        _gauge = gauge;
+        
+        if ([self isViewLoaded])
+        {
+            self.trafficBarGraph.traffic = gauge.recentTraffic;
+        }
+    }
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {

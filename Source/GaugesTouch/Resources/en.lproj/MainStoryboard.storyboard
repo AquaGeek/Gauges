@@ -134,6 +134,13 @@
                                 <view key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="XMk-lx-mvL">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" id="vAr-1Y-vGG" customClass="TrafficBarGraph">
+                                            <rect key="frame" x="10" y="14" width="300" height="72"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="lxy-hg-8v1">
@@ -244,6 +251,7 @@
                         <outlet property="currentTabTitleLabel" destination="fcU-BJ-UVn" id="9i7-QI-DLT"/>
                         <outlet property="gaugeTitleLabel" destination="smd-Qm-avw" id="5ic-Dj-cOo"/>
                         <outlet property="tableView" destination="IqJ-Qb-F47" id="XQp-eP-pfT"/>
+                        <outlet property="trafficBarGraph" destination="vAr-1Y-vGG" id="sYA-MC-t0e"/>
                     </connections>
                 </viewController>
             </objects>
@@ -275,6 +283,7 @@
                 <relationship kind="outlet" name="currentTabTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gaugeTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="trafficBarGraph" candidateClass="TrafficBarGraph"/>
             </relationships>
         </class>
         <class className="GaugesListViewController" superclassName="UITableViewController">
