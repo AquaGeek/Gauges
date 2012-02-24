@@ -14,6 +14,9 @@
 @property (nonatomic) uint64_t views;
 @property (nonatomic) uint64_t people;
 
+- (NSString *)formattedViews;
+- (NSString *)formattedPeople;
+
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

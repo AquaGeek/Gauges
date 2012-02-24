@@ -11,6 +11,7 @@
 @interface DatedViewSummary()
 
 @property (nonatomic, strong, readonly) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong, readonly) NSNumberFormatter *numberFormatter;
 
 @end
 
@@ -50,6 +51,29 @@
     });
     
     return dateFormatter;
+}
+
+- (NSNumberFormatter *)numberFormatter
+{
+    static NSNumberFormatter *numberFormatter = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    });
+    
+    return numberFormatter;
+}
+
+- (NSString *)formattedViews
+{
+    return [self.numberFormatter stringFromNumber:[NSNumber numberWithUnsignedLongLong:self.views]];
+}
+
+- (NSString *)formattedPeople
+{
+    return [self.numberFormatter stringFromNumber:[NSNumber numberWithUnsignedLongLong:self.people]];
 }
 
 @end
