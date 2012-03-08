@@ -44,6 +44,7 @@
 		2F178D7F14F6172C006CFDF7 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7D14F6172C006CFDF7 /* white.png */; };
 		2F178D8014F6172C006CFDF7 /* white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7E14F6172C006CFDF7 /* white@2x.png */; };
 		2FB881E914F7304C0092310C /* TrafficBarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB881E814F7304C0092310C /* TrafficBarGraph.m */; };
+		2FE34E4A1508468200FA0B58 /* TrafficCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E491508468200FA0B58 /* TrafficCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,8 @@
 		2F178D7E14F6172C006CFDF7 /* white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white@2x.png"; sourceTree = "<group>"; };
 		2FB881E714F7304C0092310C /* TrafficBarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficBarGraph.h; sourceTree = "<group>"; };
 		2FB881E814F7304C0092310C /* TrafficBarGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficBarGraph.m; sourceTree = "<group>"; };
+		2FE34E481508468200FA0B58 /* TrafficCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficCell.h; sourceTree = "<group>"; };
+		2FE34E491508468200FA0B58 /* TrafficCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +234,8 @@
 				2F178D4614F600D3006CFDF7 /* GaugeCell.m */,
 				2FB881E714F7304C0092310C /* TrafficBarGraph.h */,
 				2FB881E814F7304C0092310C /* TrafficBarGraph.m */,
+				2FE34E481508468200FA0B58 /* TrafficCell.h */,
+				2FE34E491508468200FA0B58 /* TrafficCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				2F178D4314F5FE30006CFDF7 /* GaugeDetailViewController.m in Sources */,
 				2F178D4714F600D3006CFDF7 /* GaugeCell.m in Sources */,
 				2FB881E914F7304C0092310C /* TrafficBarGraph.m in Sources */,
+				2FE34E4A1508468200FA0B58 /* TrafficCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
