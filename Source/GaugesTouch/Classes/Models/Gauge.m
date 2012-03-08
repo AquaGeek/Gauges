@@ -63,6 +63,12 @@
     return [traffic subarrayWithRange:weekRange];
 }
 
+- (NSArray *)recentTrafficDescending
+{
+    NSSortDescriptor *descendingDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+    return [self.recentTraffic sortedArrayUsingDescriptors:[NSArray arrayWithObject:descendingDate]];
+}
+
 - (void)refreshTrafficWithHandler:(void (^)(NSError *error))completionHandler
 {
     srand(time(NULL));
