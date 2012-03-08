@@ -230,7 +230,7 @@
                                     <outlet property="delegate" destination="21" id="pVE-Bd-bMM"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="IxV-nt-guZ">
+                            <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="IxV-nt-guZ">
                                 <rect key="frame" x="0.0" y="368" width="107" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -238,11 +238,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" backgroundImage="tab_button_traffic_active.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tabButtonTapped:" destination="21" eventType="touchUpInside" id="1Na-XK-IUn"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="GLd-bN-3La">
+                            <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="GLd-bN-3La">
                                 <rect key="frame" x="107" y="368" width="107" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -250,11 +254,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" backgroundImage="tab_button_content_active.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tabButtonTapped:" destination="21" eventType="touchUpInside" id="FJx-uj-1bc"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="gyF-Ll-sNB">
+                            <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="gyF-Ll-sNB">
                                 <rect key="frame" x="214" y="368" width="107" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -262,9 +270,13 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" backgroundImage="tab_button_referrers_active.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="tabButtonTapped:" destination="21" eventType="touchUpInside" id="d8w-fW-JGV"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="indicator.png" id="FyF-EU-iV7">
                                 <rect key="frame" x="42" y="357" width="23" height="12"/>
@@ -304,10 +316,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="cY9-34-BDa"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activeTabIndicatorView" destination="FyF-EU-iV7" id="Xw7-eZ-y6v"/>
+                        <outlet property="contentButton" destination="GLd-bN-3La" id="clC-ab-Mis"/>
                         <outlet property="currentTabTitleLabel" destination="fcU-BJ-UVn" id="9i7-QI-DLT"/>
                         <outlet property="gaugeTitleLabel" destination="smd-Qm-avw" id="5ic-Dj-cOo"/>
+                        <outlet property="referrersButton" destination="gyF-Ll-sNB" id="xqR-Gt-IWC"/>
                         <outlet property="tableView" destination="IqJ-Qb-F47" id="XQp-eP-pfT"/>
                         <outlet property="trafficBarGraph" destination="vAr-1Y-vGG" id="sYA-MC-t0e"/>
+                        <outlet property="trafficButton" destination="IxV-nt-guZ" id="pZ3-WA-1Y0"/>
                     </connections>
                 </viewController>
             </objects>
@@ -319,8 +335,11 @@
         <image name="indicator.png" width="23" height="12"/>
         <image name="shadow_bottom@2x.png" width="640" height="40"/>
         <image name="tab_button_content.png" width="107" height="48"/>
+        <image name="tab_button_content_active.png" width="107" height="48"/>
         <image name="tab_button_referrers.png" width="107" height="48"/>
+        <image name="tab_button_referrers_active.png" width="107" height="48"/>
         <image name="tab_button_traffic.png" width="107" height="48"/>
+        <image name="tab_button_traffic_active.png" width="107" height="48"/>
         <image name="table_cell_bg.png" width="320" height="72"/>
     </resources>
     <classes>
@@ -336,10 +355,15 @@
         <class className="GaugeDetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GaugeDetailViewController.h"/>
             <relationships>
+                <relationship kind="action" name="tabButtonTapped:"/>
+                <relationship kind="outlet" name="activeTabIndicatorView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="contentButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="currentTabTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gaugeTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="referrersButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="trafficBarGraph" candidateClass="TrafficBarGraph"/>
+                <relationship kind="outlet" name="trafficButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="GaugesListViewController" superclassName="UITableViewController">
