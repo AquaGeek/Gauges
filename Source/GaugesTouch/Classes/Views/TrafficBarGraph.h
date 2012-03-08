@@ -10,6 +10,8 @@
 
 @interface TrafficBarGraph : UIView
 
+@property (nonatomic, strong) UIColor *viewsColor;
+@property (nonatomic, strong) UIColor *peopleColor;
 @property (nonatomic, strong) NSArray *traffic;
 
 @end

@@ -19,6 +19,7 @@
 @property (nonatomic, strong, readonly) DatedViewSummary *todayTraffic;
 @property (nonatomic, strong, readonly) NSArray *weekTraffic;
 @property (nonatomic, strong, readonly) NSArray *recentTraffic;
+@property (nonatomic, strong, readonly) NSArray *recentTrafficDescending;
 
 // Designated initializer
 - (id)initWithDictionary:(NSDictionary *)dictionary;
