@@ -11,6 +11,7 @@
 #import "DatedViewSummary.h"
 #import "Gauge.h"
 #import "TrafficBarGraph.h"
+#import "TrafficCell.h"
 
 @interface GaugeDetailViewController()
 
@@ -135,13 +136,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.gauge.recentTraffic.count + 1;
+    return self.gauge.recentTrafficDescending.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *TrafficHeaderCellIdentifier = @"TrafficHeaderCell";
-    static NSString *CellIdentifier = @"TestCell";
+    static NSString *CellIdentifier = @"TrafficCell";
     
     NSString *identifier = (indexPath.row == 0) ? TrafficHeaderCellIdentifier : CellIdentifier;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -149,11 +150,12 @@
     // Configure the cell
     if (indexPath.row > 0)
     {
-        // TODO: Reverse the array
-        DatedViewSummary *traffic = [self.gauge.recentTraffic objectAtIndex:indexPath.row - 1];
-        cell.textLabel.text = [NSDateFormatter localizedStringFromDate:traffic.date
-                                                             dateStyle:NSDateFormatterLongStyle
-                                                             timeStyle:NSDateFormatterNoStyle];
+        DatedViewSummary *traffic = [self.gauge.recentTrafficDescending objectAtIndex:indexPath.row - 1];
+        ((TrafficCell *)cell).dateLabel.text = [NSDateFormatter localizedStringFromDate:traffic.date
+                                                                              dateStyle:NSDateFormatterLongStyle
+                                                                              timeStyle:NSDateFormatterNoStyle];
+        ((TrafficCell *)cell).viewsLabel.text = [traffic formattedViews];
+        ((TrafficCell *)cell).peopleLabel.text = [traffic formattedPeople];
     }
     
     return cell;
@@ -169,6 +171,11 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     cell.backgroundColor = (indexPath.row % 2 == 1) ? [UIColor colorWithWhite:0.5f alpha:0.1f] : [UIColor clearColor];
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;  // We don't allow selection
 }
 
 @end
