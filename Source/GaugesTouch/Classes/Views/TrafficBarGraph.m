@@ -25,6 +25,8 @@ const CGFloat kXSpacing = 1.0f;
 
 @implementation TrafficBarGraph
 
+@synthesize viewsColor = _viewsColor;
+@synthesize peopleColor = _peopleColor;
 @synthesize traffic = _traffic;
 
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -60,8 +62,7 @@ const CGFloat kXSpacing = 1.0f;
         barFrame.size.height = MAX(kMinHeight, percentage * bounds.size.height);
         barFrame.origin.y = bounds.size.height - barFrame.size.height;
         
-        // Set the color
-        [[UIColor colorWithRed:0x53/255.0f green:0x68/255.0f blue:0x5E/255.0f alpha:1.0f] set];
+        [self.viewsColor set];
         CGContextFillRect(context, barFrame);
         
         // Draw the people
@@ -69,8 +70,7 @@ const CGFloat kXSpacing = 1.0f;
         barFrame.size.height = MAX(kMinHeight, percentage * bounds.size.height);
         barFrame.origin.y = bounds.size.height - barFrame.size.height;
         
-        // Set the color
-        [[UIColor colorWithRed:0x6E/255.0f green:0x91/255.0f blue:0x80/255.0f alpha:1.0f] set];
+        [self.peopleColor set];
         CGContextFillRect(context, barFrame);
         
         barFrame.origin.x += barFrame.size.width + kXSpacing;
@@ -79,6 +79,24 @@ const CGFloat kXSpacing = 1.0f;
 
 
 #pragma mark -
+
+- (void)setViewsColor:(UIColor *)viewsColor
+{
+    if (![_viewsColor isEqual:viewsColor])
+    {
+        _viewsColor = viewsColor;
+        [self setNeedsDisplay];
+    }
+}
+
+- (void)setPeopleColor:(UIColor *)peopleColor
+{
+    if (![_peopleColor isEqual:peopleColor])
+    {
+        _peopleColor = peopleColor;
+        [self setNeedsDisplay];
+    }
+}
 
 - (void)setTraffic:(NSArray *)traffic
 {

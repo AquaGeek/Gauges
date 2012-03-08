@@ -63,6 +63,10 @@
     [super viewDidLoad];
     
     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"white"]];
+    
+    // Configure the traffic graph
+    self.trafficBarGraph.viewsColor = [UIColor colorWithRed:0xBA/255.0f green:0xDD/255.0f blue:0xCC/255.0f alpha:1.0f];
+    self.trafficBarGraph.peopleColor = [UIColor colorWithRed:0x97/255.0f green:0xCC/255.0f blue:0xB1/255.0f alpha:1.0f];
     self.trafficBarGraph.traffic = self.gauge.recentTraffic;
     
     // Force the KVO to fire

@@ -68,6 +68,13 @@
     }
 }
 
+- (void)setTrafficBarGraph:(TrafficBarGraph *)trafficBarGraph
+{
+    _trafficBarGraph = trafficBarGraph;
+    _trafficBarGraph.viewsColor = [UIColor colorWithRed:0x53/255.0f green:0x68/255.0f blue:0x5E/255.0f alpha:1.0f];
+    _trafficBarGraph.peopleColor = [UIColor colorWithRed:0x6E/255.0f green:0x91/255.0f blue:0x80/255.0f alpha:1.0f];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqualToString:@"gauge.title"])
