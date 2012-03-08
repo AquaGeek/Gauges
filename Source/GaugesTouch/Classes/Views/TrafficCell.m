@@ -9,6 +9,7 @@
 #import "TrafficCell.h"
 
 #import "DatedViewSummary.h"
+#import "NSDateFormatter+Additions.h"
 
 @implementation TrafficCell
 
@@ -46,9 +47,7 @@
 {
     if ([keyPath isEqualToString:@"traffic.date"])
     {
-        self.dateLabel.text = [NSDateFormatter localizedStringFromDate:self.traffic.date
-                                                             dateStyle:NSDateFormatterLongStyle
-                                                             timeStyle:NSDateFormatterNoStyle];
+        self.dateLabel.text = [NSDateFormatter localizedStringFromDate:self.traffic.date withTemplate:@"MMMMd"];
     }
     else if ([keyPath isEqualToString:@"traffic.views"])
     {
