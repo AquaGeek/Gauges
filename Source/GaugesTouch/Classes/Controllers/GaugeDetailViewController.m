@@ -151,11 +151,7 @@
     if (indexPath.row > 0)
     {
         DatedViewSummary *traffic = [self.gauge.recentTrafficDescending objectAtIndex:indexPath.row - 1];
-        ((TrafficCell *)cell).dateLabel.text = [NSDateFormatter localizedStringFromDate:traffic.date
-                                                                              dateStyle:NSDateFormatterLongStyle
-                                                                              timeStyle:NSDateFormatterNoStyle];
-        ((TrafficCell *)cell).viewsLabel.text = [traffic formattedViews];
-        ((TrafficCell *)cell).peopleLabel.text = [traffic formattedPeople];
+        ((TrafficCell *)cell).traffic = traffic;
     }
     
     return cell;

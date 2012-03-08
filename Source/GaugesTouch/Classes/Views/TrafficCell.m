@@ -8,27 +8,56 @@
 
 #import "TrafficCell.h"
 
+#import "DatedViewSummary.h"
+
 @implementation TrafficCell
 
 @synthesize dateLabel = _dateLabel;
 @synthesize viewsLabel = _viewsLabel;
 @synthesize peopleLabel = _peopleLabel;
+@synthesize traffic = _traffic;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    if ((self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]))
+    if ((self = [super initWithCoder:aDecoder]))
     {
-        // Initialization code
+        [self addObserver:self forKeyPath:@"traffic.date" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"traffic.views" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"traffic.people" options:0 context:NULL];
     }
     
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+- (void)dealloc
 {
-    [super setSelected:selected animated:animated];
-    
-    // Configure the view for the selected state
+    [self removeObserver:self forKeyPath:@"traffic.date"];
+    [self removeObserver:self forKeyPath:@"traffic.views"];
+    [self removeObserver:self forKeyPath:@"traffic.people"];
+}
+
+
+#pragma mark -
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if ([keyPath isEqualToString:@"traffic.date"])
+    {
+        self.dateLabel.text = [NSDateFormatter localizedStringFromDate:self.traffic.date
+                                                             dateStyle:NSDateFormatterLongStyle
+                                                             timeStyle:NSDateFormatterNoStyle];
+    }
+    else if ([keyPath isEqualToString:@"traffic.views"])
+    {
+        self.viewsLabel.text = [self.traffic formattedViews];
+    }
+    else if ([keyPath isEqualToString:@"traffic.people"])
+    {
+        self.peopleLabel.text = [self.traffic formattedPeople];
+    }
 }
 
 @end
