@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSString *timeZoneName;
 @property (nonatomic, getter = isEnabled) BOOL enabled;
 @property (nonatomic, strong, readonly) DatedViewSummary *todayTraffic;
+@property (nonatomic, strong, readonly) NSArray *weekTraffic;
 @property (nonatomic, strong, readonly) NSArray *recentTraffic;
 
 // Designated initializer
