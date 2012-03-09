@@ -43,9 +43,14 @@
 		2F178D7C14F6123E006CFDF7 /* shadow_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7B14F6123E006CFDF7 /* shadow_bottom@2x.png */; };
 		2F178D7F14F6172C006CFDF7 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7D14F6172C006CFDF7 /* white.png */; };
 		2F178D8014F6172C006CFDF7 /* white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7E14F6172C006CFDF7 /* white@2x.png */; };
+		2FB78BEE1509C8D60049AF6C /* TableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78BED1509C8D60049AF6C /* TableManager.m */; };
+		2FB78BF11509C9700049AF6C /* TrafficTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78BF01509C9700049AF6C /* TrafficTableManager.m */; };
+		2FB78BF41509CECC0049AF6C /* ContentTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78BF31509CECC0049AF6C /* ContentTableManager.m */; };
+		2FB78BF71509D6860049AF6C /* PageContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78BF61509D6860049AF6C /* PageContentCell.m */; };
 		2FB881E914F7304C0092310C /* TrafficBarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB881E814F7304C0092310C /* TrafficBarGraph.m */; };
 		2FE34E4A1508468200FA0B58 /* TrafficCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E491508468200FA0B58 /* TrafficCell.m */; };
 		2FE34E4F15084C9A00FA0B58 /* NSDateFormatter+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E4E15084C9A00FA0B58 /* NSDateFormatter+Additions.m */; };
+		2FE34E5615085C7500FA0B58 /* PageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E5515085C7500FA0B58 /* PageContent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,12 +99,22 @@
 		2F178D7B14F6123E006CFDF7 /* shadow_bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow_bottom@2x.png"; sourceTree = "<group>"; };
 		2F178D7D14F6172C006CFDF7 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		2F178D7E14F6172C006CFDF7 /* white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white@2x.png"; sourceTree = "<group>"; };
+		2FB78BEC1509C8D60049AF6C /* TableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableManager.h; sourceTree = "<group>"; };
+		2FB78BED1509C8D60049AF6C /* TableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableManager.m; sourceTree = "<group>"; };
+		2FB78BEF1509C9700049AF6C /* TrafficTableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficTableManager.h; sourceTree = "<group>"; };
+		2FB78BF01509C9700049AF6C /* TrafficTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficTableManager.m; sourceTree = "<group>"; };
+		2FB78BF21509CECC0049AF6C /* ContentTableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentTableManager.h; sourceTree = "<group>"; };
+		2FB78BF31509CECC0049AF6C /* ContentTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentTableManager.m; sourceTree = "<group>"; };
+		2FB78BF51509D6860049AF6C /* PageContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentCell.h; sourceTree = "<group>"; };
+		2FB78BF61509D6860049AF6C /* PageContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentCell.m; sourceTree = "<group>"; };
 		2FB881E714F7304C0092310C /* TrafficBarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficBarGraph.h; sourceTree = "<group>"; };
 		2FB881E814F7304C0092310C /* TrafficBarGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficBarGraph.m; sourceTree = "<group>"; };
 		2FE34E481508468200FA0B58 /* TrafficCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficCell.h; sourceTree = "<group>"; };
 		2FE34E491508468200FA0B58 /* TrafficCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficCell.m; sourceTree = "<group>"; };
 		2FE34E4D15084C9A00FA0B58 /* NSDateFormatter+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Additions.h"; sourceTree = "<group>"; };
 		2FE34E4E15084C9A00FA0B58 /* NSDateFormatter+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Additions.m"; sourceTree = "<group>"; };
+		2FE34E5415085C7500FA0B58 /* PageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContent.h; sourceTree = "<group>"; };
+		2FE34E5515085C7500FA0B58 /* PageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +200,8 @@
 				2F178D2C14F5E81F006CFDF7 /* Gauge.m */,
 				2F178D2E14F5EB8C006CFDF7 /* DatedViewSummary.h */,
 				2F178D2F14F5EB8C006CFDF7 /* DatedViewSummary.m */,
+				2FE34E5415085C7500FA0B58 /* PageContent.h */,
+				2FE34E5515085C7500FA0B58 /* PageContent.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +213,7 @@
 				2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */,
 				2F178D4114F5FE30006CFDF7 /* GaugeDetailViewController.h */,
 				2F178D4214F5FE30006CFDF7 /* GaugeDetailViewController.m */,
+				2FB78BEA1509C8B30049AF6C /* Table Managers */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -236,12 +254,27 @@
 			children = (
 				2F178D4514F600D3006CFDF7 /* GaugeCell.h */,
 				2F178D4614F600D3006CFDF7 /* GaugeCell.m */,
+				2FB78BF51509D6860049AF6C /* PageContentCell.h */,
+				2FB78BF61509D6860049AF6C /* PageContentCell.m */,
 				2FB881E714F7304C0092310C /* TrafficBarGraph.h */,
 				2FB881E814F7304C0092310C /* TrafficBarGraph.m */,
 				2FE34E481508468200FA0B58 /* TrafficCell.h */,
 				2FE34E491508468200FA0B58 /* TrafficCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2FB78BEA1509C8B30049AF6C /* Table Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2FB78BEC1509C8D60049AF6C /* TableManager.h */,
+				2FB78BED1509C8D60049AF6C /* TableManager.m */,
+				2FB78BEF1509C9700049AF6C /* TrafficTableManager.h */,
+				2FB78BF01509C9700049AF6C /* TrafficTableManager.m */,
+				2FB78BF21509CECC0049AF6C /* ContentTableManager.h */,
+				2FB78BF31509CECC0049AF6C /* ContentTableManager.m */,
+			);
+			path = "Table Managers";
 			sourceTree = "<group>";
 		};
 		2FE34E4C15084C8500FA0B58 /* Utility */ = {
@@ -350,6 +383,11 @@
 				2FB881E914F7304C0092310C /* TrafficBarGraph.m in Sources */,
 				2FE34E4A1508468200FA0B58 /* TrafficCell.m in Sources */,
 				2FE34E4F15084C9A00FA0B58 /* NSDateFormatter+Additions.m in Sources */,
+				2FE34E5615085C7500FA0B58 /* PageContent.m in Sources */,
+				2FB78BEE1509C8D60049AF6C /* TableManager.m in Sources */,
+				2FB78BF11509C9700049AF6C /* TrafficTableManager.m in Sources */,
+				2FB78BF41509CECC0049AF6C /* ContentTableManager.m in Sources */,
+				2FB78BF71509D6860049AF6C /* PageContentCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

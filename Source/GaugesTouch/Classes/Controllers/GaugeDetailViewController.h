@@ -10,7 +10,7 @@
 
 @class Gauge;
 
-@interface GaugeDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GaugeDetailViewController : UIViewController
 
 @property (nonatomic, strong) Gauge *gauge;
 

@@ -144,7 +144,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="lxy-hg-8v1">
-                                    <rect key="frame" x="0.0" y="157" width="320" height="12"/>
+                                    <rect key="frame" x="0.0" y="219" width="320" height="12"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -223,12 +223,82 @@
                                             <outlet property="viewsLabel" destination="uq0-K0-ECI" id="CFQ-bn-X7y"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentHeaderCell" rowHeight="24" id="2pp-Ik-mqP">
+                                        <rect key="frame" x="0.0" y="157" width="320" height="24"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="23"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Views" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="VYz-fg-sRo">
+                                                    <rect key="frame" x="275" y="4" width="35" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Content" lineBreakMode="tailTruncation" minimumFontSize="10" id="Vm8-fA-J2M">
+                                                    <rect key="frame" x="10" y="4" width="46" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentCell" rowHeight="38" id="B2s-C9-iNY" customClass="PageContentCell">
+                                        <rect key="frame" x="0.0" y="181" width="320" height="38"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="/" lineBreakMode="tailTruncation" minimumFontSize="10" id="6Ua-6F-Evc">
+                                                    <rect key="frame" x="10" y="19" width="223" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.63921568630000003" green="0.63921568630000003" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speaker Deck" lineBreakMode="tailTruncation" minimumFontSize="10" id="S6C-Uu-uKE">
+                                                    <rect key="frame" x="10" y="4" width="223" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100,000,000" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="zZY-aW-7E6">
+                                                    <rect key="frame" x="241" y="4" width="69" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="pathLabel" destination="6Ua-6F-Evc" id="Ebc-6t-R1E"/>
+                                            <outlet property="titleLabel" destination="S6C-Uu-uKE" id="Akg-8i-Abb"/>
+                                            <outlet property="viewsLabel" destination="zZY-aW-7E6" id="QK9-be-7Uh"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="21" id="fvh-wO-M1w"/>
-                                    <outlet property="delegate" destination="21" id="pVE-Bd-bMM"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="IxV-nt-guZ">
                                 <rect key="frame" x="0.0" y="368" width="107" height="48"/>
@@ -318,14 +388,22 @@
                     <connections>
                         <outlet property="activeTabIndicatorView" destination="FyF-EU-iV7" id="Xw7-eZ-y6v"/>
                         <outlet property="contentButton" destination="GLd-bN-3La" id="clC-ab-Mis"/>
+                        <outlet property="contentTableManager" destination="Gw6-la-ByG" id="loi-pA-I8p"/>
                         <outlet property="currentTabTitleLabel" destination="fcU-BJ-UVn" id="9i7-QI-DLT"/>
                         <outlet property="gaugeTitleLabel" destination="smd-Qm-avw" id="5ic-Dj-cOo"/>
                         <outlet property="referrersButton" destination="gyF-Ll-sNB" id="xqR-Gt-IWC"/>
                         <outlet property="tableView" destination="IqJ-Qb-F47" id="XQp-eP-pfT"/>
-                        <outlet property="trafficBarGraph" destination="vAr-1Y-vGG" id="sYA-MC-t0e"/>
                         <outlet property="trafficButton" destination="IxV-nt-guZ" id="pZ3-WA-1Y0"/>
+                        <outlet property="trafficTableManager" destination="5rg-gq-9Ho" id="Ipb-Pe-DGf"/>
                     </connections>
                 </viewController>
+                <customObject id="5rg-gq-9Ho" customClass="TrafficTableManager">
+                    <connections>
+                        <outlet property="tableHeaderView" destination="XMk-lx-mvL" id="rRr-Uk-qIT"/>
+                        <outlet property="trafficBarGraph" destination="vAr-1Y-vGG" id="dfl-3X-0ql"/>
+                    </connections>
+                </customObject>
+                <customObject id="Gw6-la-ByG" customClass="ContentTableManager"/>
             </objects>
             <point key="canvasLocation" x="924" y="64"/>
         </scene>
@@ -343,6 +421,9 @@
         <image name="table_cell_bg.png" width="320" height="72"/>
     </resources>
     <classes>
+        <class className="ContentTableManager" superclassName="TableManager">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContentTableManager.h"/>
+        </class>
         <class className="GaugeCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GaugeCell.h"/>
             <relationships>
@@ -358,16 +439,31 @@
                 <relationship kind="action" name="tabButtonTapped:"/>
                 <relationship kind="outlet" name="activeTabIndicatorView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="contentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="contentTableManager" candidateClass="ContentTableManager"/>
                 <relationship kind="outlet" name="currentTabTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gaugeTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="referrersButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="trafficBarGraph" candidateClass="TrafficBarGraph"/>
                 <relationship kind="outlet" name="trafficButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="trafficTableManager" candidateClass="TrafficTableManager"/>
             </relationships>
         </class>
         <class className="GaugesListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GaugesListViewController.h"/>
+        </class>
+        <class className="PageContentCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageContentCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="pathLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TableManager" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableManager.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
+            </relationships>
         </class>
         <class className="TrafficBarGraph" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficBarGraph.h"/>
@@ -378,6 +474,12 @@
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="peopleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="viewsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="TrafficTableManager" superclassName="TableManager">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficTableManager.h"/>
+            <relationships>
+                <relationship kind="outlet" name="trafficBarGraph" candidateClass="TrafficBarGraph"/>
             </relationships>
         </class>
     </classes>

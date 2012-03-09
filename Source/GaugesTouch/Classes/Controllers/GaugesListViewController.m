@@ -92,6 +92,10 @@
         [gauge refreshTrafficWithHandler:^(NSError *error) {
             NSLog(@"Traffic refreshed for gauge '%@'", gauge.title);
         }];
+        
+        [gauge refreshContentWithHandler:^(NSError *error) {
+            NSLog(@"Content refreshed for gauge '%@'", gauge.title);
+        }];
     }
 }
 
