@@ -8,9 +8,9 @@
 
 #import "GaugeDetailViewController.h"
 
+#import "ContentTableManager.h"
 #import "DatedViewSummary.h"
 #import "Gauge.h"
-#import "TrafficBarGraph.h"
 #import "TrafficTableManager.h"
 
 typedef enum {
@@ -25,7 +25,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UILabel *gaugeTitleLabel;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet TrafficTableManager *trafficTableManager;
-@property (nonatomic, weak) IBOutlet TrafficBarGraph *trafficBarGraph;
+@property (nonatomic, strong) IBOutlet ContentTableManager *contentTableManager;
 
 @property (nonatomic) Tab currentTab;
 @property (nonatomic, weak) IBOutlet UIButton *trafficButton;
@@ -35,6 +35,7 @@ typedef enum {
 
 - (IBAction)tabButtonTapped:(id)sender;
 - (UIButton *)tabButtonAtIndex:(Tab)index;
+- (TableManager *)activeTableManager;
 
 @end
 
@@ -48,7 +49,7 @@ typedef enum {
 @synthesize gaugeTitleLabel = _gaugeTitleLabel;
 @synthesize tableView = _tableView;
 @synthesize trafficTableManager = _trafficTableManager;
-@synthesize trafficBarGraph = _trafficBarGraph;
+@synthesize contentTableManager = _contentTableManager;
 
 @synthesize currentTab = _currentTab;
 @synthesize trafficButton = _trafficButton;
@@ -89,11 +90,6 @@ typedef enum {
     
     // Set/restore the tab selection
     self.currentTab = _currentTab;
-    
-    // Configure the traffic graph
-    self.trafficBarGraph.viewsColor = [UIColor colorWithRed:0xBA/255.0f green:0xDD/255.0f blue:0xCC/255.0f alpha:1.0f];
-    self.trafficBarGraph.peopleColor = [UIColor colorWithRed:0x97/255.0f green:0xCC/255.0f blue:0xB1/255.0f alpha:1.0f];
-    self.trafficBarGraph.traffic = self.gauge.recentTraffic;
     
     // Force the KVO to fire
     self.gauge = self.gauge;
@@ -143,11 +139,7 @@ typedef enum {
         
         // Pass the gauge down to the table managers
         self.trafficTableManager.gauge = gauge;
-        
-        if ([self isViewLoaded])
-        {
-            self.trafficBarGraph.traffic = gauge.recentTraffic;
-        }
+        self.contentTableManager.gauge = gauge;
     }
 }
 
@@ -190,9 +182,12 @@ typedef enum {
         indicatorFrame.origin.x = floorf(CGRectGetMidX(newButton.frame) - indicatorFrame.size.width / 2);
         self.activeTabIndicatorView.frame = indicatorFrame;
         
-        // TODO: Change out the table data source(/delegate?) and refresh the table
-        self.tableView.dataSource = self.trafficTableManager;
-        self.tableView.delegate = self.trafficTableManager;
+        // Swap out the table data source/delegate and refresh the table
+        TableManager *activeManager = self.activeTableManager;
+        self.tableView.dataSource = activeManager;
+        self.tableView.delegate = activeManager;
+        self.tableView.tableHeaderView = activeManager.tableHeaderView;
+        self.currentTabTitleLabel.text = activeManager.title;
         [self.tableView reloadData];
     }
 }
@@ -215,6 +210,20 @@ typedef enum {
             return self.contentButton;
         case kReferrersTab:
             return self.referrersButton;
+        default:
+            return nil;
+    }
+}
+
+- (TableManager *)activeTableManager
+{
+    switch (self.currentTab)
+    {
+        case kTrafficTab:
+            return self.trafficTableManager;
+        case kContentTab:
+            return self.contentTableManager;
+        case kReferrersTab:
         default:
             return nil;
     }
