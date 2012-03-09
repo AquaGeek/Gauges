@@ -225,10 +225,6 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="21" id="fvh-wO-M1w"/>
-                                    <outlet property="delegate" destination="21" id="pVE-Bd-bMM"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" id="IxV-nt-guZ">
                                 <rect key="frame" x="0.0" y="368" width="107" height="48"/>
@@ -324,8 +320,10 @@
                         <outlet property="tableView" destination="IqJ-Qb-F47" id="XQp-eP-pfT"/>
                         <outlet property="trafficBarGraph" destination="vAr-1Y-vGG" id="sYA-MC-t0e"/>
                         <outlet property="trafficButton" destination="IxV-nt-guZ" id="pZ3-WA-1Y0"/>
+                        <outlet property="trafficTableManager" destination="5rg-gq-9Ho" id="Ipb-Pe-DGf"/>
                     </connections>
                 </viewController>
+                <customObject id="5rg-gq-9Ho" customClass="TrafficTableManager"/>
             </objects>
             <point key="canvasLocation" x="924" y="64"/>
         </scene>
@@ -364,10 +362,14 @@
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="trafficBarGraph" candidateClass="TrafficBarGraph"/>
                 <relationship kind="outlet" name="trafficButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="trafficTableManager" candidateClass="TrafficTableManager"/>
             </relationships>
         </class>
         <class className="GaugesListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GaugesListViewController.h"/>
+        </class>
+        <class className="TableManager" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TableManager.h"/>
         </class>
         <class className="TrafficBarGraph" superclassName="UIView">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficBarGraph.h"/>
@@ -379,6 +381,9 @@
                 <relationship kind="outlet" name="peopleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="viewsLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="TrafficTableManager" superclassName="TableManager">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficTableManager.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

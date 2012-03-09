@@ -11,7 +11,7 @@
 #import "DatedViewSummary.h"
 #import "Gauge.h"
 #import "TrafficBarGraph.h"
-#import "TrafficCell.h"
+#import "TrafficTableManager.h"
 
 typedef enum {
     kTrafficTab = 0,
@@ -24,6 +24,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UILabel *currentTabTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *gaugeTitleLabel;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet TrafficTableManager *trafficTableManager;
 @property (nonatomic, weak) IBOutlet TrafficBarGraph *trafficBarGraph;
 
 @property (nonatomic) Tab currentTab;
@@ -46,6 +47,7 @@ typedef enum {
 @synthesize currentTabTitleLabel = _currentTabTitleLabel;
 @synthesize gaugeTitleLabel = _gaugeTitleLabel;
 @synthesize tableView = _tableView;
+@synthesize trafficTableManager = _trafficTableManager;
 @synthesize trafficBarGraph = _trafficBarGraph;
 
 @synthesize currentTab = _currentTab;
@@ -139,6 +141,9 @@ typedef enum {
     {
         _gauge = gauge;
         
+        // Pass the gauge down to the table managers
+        self.trafficTableManager.gauge = gauge;
+        
         if ([self isViewLoaded])
         {
             self.trafficBarGraph.traffic = gauge.recentTraffic;
@@ -186,6 +191,9 @@ typedef enum {
         self.activeTabIndicatorView.frame = indicatorFrame;
         
         // TODO: Change out the table data source(/delegate?) and refresh the table
+        self.tableView.dataSource = self.trafficTableManager;
+        self.tableView.delegate = self.trafficTableManager;
+        [self.tableView reloadData];
     }
 }
 
@@ -210,49 +218,6 @@ typedef enum {
         default:
             return nil;
     }
-}
-
-
-#pragma mark - UITableView Data Source Methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.gauge.recentTrafficDescending.count + 1;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *TrafficHeaderCellIdentifier = @"TrafficHeaderCell";
-    static NSString *CellIdentifier = @"TrafficCell";
-    
-    NSString *identifier = (indexPath.row == 0) ? TrafficHeaderCellIdentifier : CellIdentifier;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    
-    // Configure the cell
-    if (indexPath.row > 0)
-    {
-        DatedViewSummary *traffic = [self.gauge.recentTrafficDescending objectAtIndex:indexPath.row - 1];
-        ((TrafficCell *)cell).traffic = traffic;
-    }
-    
-    return cell;
-}
-
-#pragma mark Delegate Methods
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 24.0f;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    cell.backgroundColor = (indexPath.row % 2 == 1) ? [UIColor colorWithWhite:0.5f alpha:0.1f] : [UIColor clearColor];
-}
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return nil;  // We don't allow selection
 }
 
 @end

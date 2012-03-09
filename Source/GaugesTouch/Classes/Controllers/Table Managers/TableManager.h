@@ -1,8 +1,8 @@
 //
-//  GaugeDetailViewController.h
+//  TableManager.h
 //  GaugesTouch
 //
-//  Created by Tyler Stromberg on 2/22/12.
+//  Created by Tyler Stromberg on 3/9/12.
 //  Copyright (c) 2012 Tyler Stromberg. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @class Gauge;
 
-@interface GaugeDetailViewController : UIViewController
+@interface TableManager : NSObject <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) Gauge *gauge;
 
