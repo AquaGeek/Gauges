@@ -10,7 +10,9 @@
 
 @implementation TableManager
 
+@synthesize title = _title;
 @synthesize gauge = _gauge;
+@synthesize tableHeaderView = _tableHeaderView;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {

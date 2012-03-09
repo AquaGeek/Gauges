@@ -9,11 +9,48 @@
 #import "TrafficTableManager.h"
 
 #import "Gauge.h"
+#import "TrafficBarGraph.h"
 #import "TrafficCell.h"
+
+@interface TrafficTableManager()
+
+@property (nonatomic, weak) IBOutlet TrafficBarGraph *trafficBarGraph;
+
+@end
+
+
+#pragma mark -
 
 @implementation TrafficTableManager
 
-#pragma mark UITableView Data Source Methods
+@synthesize trafficBarGraph = _trafficBarGraph;
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    self.title = NSLocalizedString(@"Recent Traffic", nil);
+}
+
+- (void)setTrafficBarGraph:(TrafficBarGraph *)trafficBarGraph
+{
+    _trafficBarGraph = trafficBarGraph;
+    
+    // Configure the traffic graph
+    self.trafficBarGraph.viewsColor = [UIColor colorWithRed:0xBA/255.0f green:0xDD/255.0f blue:0xCC/255.0f alpha:1.0f];
+    self.trafficBarGraph.peopleColor = [UIColor colorWithRed:0x97/255.0f green:0xCC/255.0f blue:0xB1/255.0f alpha:1.0f];
+    self.trafficBarGraph.traffic = self.gauge.recentTraffic;
+}
+
+- (void)setGauge:(Gauge *)gauge
+{
+    [super setGauge:gauge];
+    
+    self.trafficBarGraph.traffic = self.gauge.recentTraffic;
+}
+
+
+#pragma mark - UITableView Data Source Methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

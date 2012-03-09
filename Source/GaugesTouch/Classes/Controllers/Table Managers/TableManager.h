@@ -12,6 +12,8 @@
 
 @interface TableManager : NSObject <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) Gauge *gauge;
+@property (nonatomic, strong) IBOutlet UIView *tableHeaderView;
 
 @end
