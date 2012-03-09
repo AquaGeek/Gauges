@@ -20,10 +20,12 @@
 @property (nonatomic, strong, readonly) NSArray *weekTraffic;
 @property (nonatomic, strong, readonly) NSArray *recentTraffic;
 @property (nonatomic, strong, readonly) NSArray *recentTrafficDescending;
+@property (nonatomic, strong, readonly) NSArray *topContent;
 
 // Designated initializer
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)refreshTrafficWithHandler:(void (^)(NSError *error))completionHandler;
+- (void)refreshContentWithHandler:(void (^)(NSError *error))completionHandler;
 
 @end

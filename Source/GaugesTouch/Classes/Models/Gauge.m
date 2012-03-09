@@ -9,11 +9,13 @@
 #import "Gauge.h"
 
 #import "DatedViewSummary.h"
+#import "PageContent.h"
 
 @interface Gauge()
 
 @property (nonatomic, strong, readwrite) DatedViewSummary *todayTraffic;
 @property (nonatomic, strong, readwrite) NSArray *recentTraffic;
+@property (nonatomic, strong, readwrite) NSArray *topContent;
 
 @end
 
@@ -26,8 +28,6 @@
 @synthesize title = _title;
 @synthesize timeZoneName = _timeZoneName;
 @synthesize enabled = _enabled;
-@synthesize todayTraffic = _todayTraffic;
-@synthesize recentTraffic = _recentTraffic;
 
 
 #pragma mark - Object Lifecycle
@@ -47,6 +47,9 @@
 
 
 #pragma mark - Traffic
+
+@synthesize todayTraffic = _todayTraffic;
+@synthesize recentTraffic = _recentTraffic;
 
 - (NSArray *)weekTraffic
 {
@@ -95,6 +98,41 @@
         }
         
         self.recentTraffic = newTraffic;
+        
+        if (completionHandler != nil)
+        {
+            completionHandler(nil);
+        }
+    });
+}
+
+
+#pragma mark - Content
+
+@synthesize topContent = _topContent;
+
+- (void)refreshContentWithHandler:(void (^)(NSError *))completionHandler
+{
+    srand(time(NULL));
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //!!! TEMP: Fake some content data
+        NSMutableArray *newContent = [NSMutableArray arrayWithCapacity:15];
+        
+        for (NSInteger i = 0; i < 15; i++)
+        {
+            PageContent *content = [[PageContent alloc] init];
+            content.views = rand() % 1000;
+            content.url = @"http://get.gaug.es";
+            content.path = @"/";
+            content.title = @"Gaug.es";
+            
+            [newContent addObject:content];
+        }
+        
+        NSSortDescriptor *byViews = [NSSortDescriptor sortDescriptorWithKey:@"views" ascending:NO];
+        self.topContent = [newContent sortedArrayUsingDescriptors:[NSArray arrayWithObject:byViews]];
         
         if (completionHandler != nil)
         {
