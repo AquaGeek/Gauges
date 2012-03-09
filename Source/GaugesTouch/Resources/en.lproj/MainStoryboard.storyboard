@@ -392,6 +392,7 @@
                         <outlet property="currentTabTitleLabel" destination="fcU-BJ-UVn" id="9i7-QI-DLT"/>
                         <outlet property="gaugeTitleLabel" destination="smd-Qm-avw" id="5ic-Dj-cOo"/>
                         <outlet property="referrersButton" destination="gyF-Ll-sNB" id="xqR-Gt-IWC"/>
+                        <outlet property="referrersTableManager" destination="Upy-br-thn" id="jTD-yK-yHg"/>
                         <outlet property="tableView" destination="IqJ-Qb-F47" id="XQp-eP-pfT"/>
                         <outlet property="trafficButton" destination="IxV-nt-guZ" id="pZ3-WA-1Y0"/>
                         <outlet property="trafficTableManager" destination="5rg-gq-9Ho" id="Ipb-Pe-DGf"/>
@@ -404,6 +405,7 @@
                     </connections>
                 </customObject>
                 <customObject id="Gw6-la-ByG" customClass="ContentTableManager"/>
+                <customObject id="Upy-br-thn" customClass="ReferrersTableManager"/>
             </objects>
             <point key="canvasLocation" x="924" y="64"/>
         </scene>
@@ -443,6 +445,7 @@
                 <relationship kind="outlet" name="currentTabTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gaugeTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="referrersButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="referrersTableManager" candidateClass="ReferrersTableManager"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="trafficButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="trafficTableManager" candidateClass="TrafficTableManager"/>
@@ -458,6 +461,9 @@
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="viewsLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="ReferrersTableManager" superclassName="TableManager">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReferrersTableManager.h"/>
         </class>
         <class className="TableManager" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TableManager.h"/>
