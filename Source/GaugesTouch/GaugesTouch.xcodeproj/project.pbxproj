@@ -48,6 +48,7 @@
 		2FB78BF41509CECC0049AF6C /* ContentTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78BF31509CECC0049AF6C /* ContentTableManager.m */; };
 		2FB78BF71509D6860049AF6C /* PageContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78BF61509D6860049AF6C /* PageContentCell.m */; };
 		2FB78BFE1509DA230049AF6C /* ReferrersTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78BFD1509DA230049AF6C /* ReferrersTableManager.m */; };
+		2FB78C021509DB140049AF6C /* Referrer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB78C011509DB140049AF6C /* Referrer.m */; };
 		2FB881E914F7304C0092310C /* TrafficBarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB881E814F7304C0092310C /* TrafficBarGraph.m */; };
 		2FE34E4A1508468200FA0B58 /* TrafficCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E491508468200FA0B58 /* TrafficCell.m */; };
 		2FE34E4F15084C9A00FA0B58 /* NSDateFormatter+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E4E15084C9A00FA0B58 /* NSDateFormatter+Additions.m */; };
@@ -110,6 +111,8 @@
 		2FB78BF61509D6860049AF6C /* PageContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentCell.m; sourceTree = "<group>"; };
 		2FB78BFC1509DA230049AF6C /* ReferrersTableManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferrersTableManager.h; sourceTree = "<group>"; };
 		2FB78BFD1509DA230049AF6C /* ReferrersTableManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferrersTableManager.m; sourceTree = "<group>"; };
+		2FB78C001509DB140049AF6C /* Referrer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Referrer.h; sourceTree = "<group>"; };
+		2FB78C011509DB140049AF6C /* Referrer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Referrer.m; sourceTree = "<group>"; };
 		2FB881E714F7304C0092310C /* TrafficBarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficBarGraph.h; sourceTree = "<group>"; };
 		2FB881E814F7304C0092310C /* TrafficBarGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrafficBarGraph.m; sourceTree = "<group>"; };
 		2FE34E481508468200FA0B58 /* TrafficCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrafficCell.h; sourceTree = "<group>"; };
@@ -205,6 +208,8 @@
 				2F178D2F14F5EB8C006CFDF7 /* DatedViewSummary.m */,
 				2FE34E5415085C7500FA0B58 /* PageContent.h */,
 				2FE34E5515085C7500FA0B58 /* PageContent.m */,
+				2FB78C001509DB140049AF6C /* Referrer.h */,
+				2FB78C011509DB140049AF6C /* Referrer.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				2FB78BF41509CECC0049AF6C /* ContentTableManager.m in Sources */,
 				2FB78BF71509D6860049AF6C /* PageContentCell.m in Sources */,
 				2FB78BFE1509DA230049AF6C /* ReferrersTableManager.m in Sources */,
+				2FB78C021509DB140049AF6C /* Referrer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
