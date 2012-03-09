@@ -15,4 +15,6 @@
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *url;
 
+- (NSString *)formattedViews;
+
 @end
