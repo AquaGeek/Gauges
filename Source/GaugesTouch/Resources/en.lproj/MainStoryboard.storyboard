@@ -144,7 +144,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view key="tableFooterView" opaque="NO" contentMode="scaleToFill" id="lxy-hg-8v1">
-                                    <rect key="frame" x="0.0" y="219" width="320" height="12"/>
+                                    <rect key="frame" x="0.0" y="281" width="320" height="12"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -253,7 +253,7 @@
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentCell" rowHeight="38" id="B2s-C9-iNY" customClass="PageContentCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContentCell" rowHeight="38" id="B2s-C9-iNY" customClass="PageContentCell">
                                         <rect key="frame" x="0.0" y="181" width="320" height="38"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -295,6 +295,80 @@
                                             <outlet property="pathLabel" destination="6Ua-6F-Evc" id="Ebc-6t-R1E"/>
                                             <outlet property="titleLabel" destination="S6C-Uu-uKE" id="Akg-8i-Abb"/>
                                             <outlet property="viewsLabel" destination="zZY-aW-7E6" id="QK9-be-7Uh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReferrerHeaderCell" rowHeight="24" id="CGr-Fl-lH1">
+                                        <rect key="frame" x="0.0" y="219" width="320" height="24"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="23"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Views" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="mvJ-wA-6Vz">
+                                                    <rect key="frame" x="275" y="4" width="35" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Referrer" lineBreakMode="tailTruncation" minimumFontSize="10" id="scH-yW-TTM">
+                                                    <rect key="frame" x="10" y="4" width="48" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReferrerCell" rowHeight="38" id="1Pm-gf-G5B" customClass="ReferrerCell">
+                                        <rect key="frame" x="0.0" y="243" width="320" height="38"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="37"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="/" lineBreakMode="tailTruncation" minimumFontSize="10" id="Reh-vM-Dg1">
+                                                    <rect key="frame" x="10" y="19" width="223" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.63921568630000003" green="0.63921568630000003" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="twitter.com" lineBreakMode="tailTruncation" minimumFontSize="10" id="DI9-6l-wwY">
+                                                    <rect key="frame" x="10" y="4" width="223" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100,000,000" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" id="dCh-so-ICu">
+                                                    <rect key="frame" x="241" y="4" width="69" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="0.0" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="hostLabel" destination="DI9-6l-wwY" id="DQt-uE-UK2"/>
+                                            <outlet property="pathLabel" destination="Reh-vM-Dg1" id="edm-gX-YPn"/>
+                                            <outlet property="viewsLabel" destination="dCh-so-ICu" id="3Cv-W0-78O"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -392,6 +466,7 @@
                         <outlet property="currentTabTitleLabel" destination="fcU-BJ-UVn" id="9i7-QI-DLT"/>
                         <outlet property="gaugeTitleLabel" destination="smd-Qm-avw" id="5ic-Dj-cOo"/>
                         <outlet property="referrersButton" destination="gyF-Ll-sNB" id="xqR-Gt-IWC"/>
+                        <outlet property="referrersTableManager" destination="Upy-br-thn" id="jTD-yK-yHg"/>
                         <outlet property="tableView" destination="IqJ-Qb-F47" id="XQp-eP-pfT"/>
                         <outlet property="trafficButton" destination="IxV-nt-guZ" id="pZ3-WA-1Y0"/>
                         <outlet property="trafficTableManager" destination="5rg-gq-9Ho" id="Ipb-Pe-DGf"/>
@@ -404,6 +479,7 @@
                     </connections>
                 </customObject>
                 <customObject id="Gw6-la-ByG" customClass="ContentTableManager"/>
+                <customObject id="Upy-br-thn" customClass="ReferrersTableManager"/>
             </objects>
             <point key="canvasLocation" x="924" y="64"/>
         </scene>
@@ -443,6 +519,7 @@
                 <relationship kind="outlet" name="currentTabTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="gaugeTitleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="referrersButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="referrersTableManager" candidateClass="ReferrersTableManager"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="trafficButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="trafficTableManager" candidateClass="TrafficTableManager"/>
@@ -458,6 +535,17 @@
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="viewsLabel" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="ReferrerCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReferrerCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="pathLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="viewsLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ReferrersTableManager" superclassName="TableManager">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReferrersTableManager.h"/>
         </class>
         <class className="TableManager" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TableManager.h"/>

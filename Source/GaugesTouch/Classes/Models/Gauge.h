@@ -21,11 +21,13 @@
 @property (nonatomic, strong, readonly) NSArray *recentTraffic;
 @property (nonatomic, strong, readonly) NSArray *recentTrafficDescending;
 @property (nonatomic, strong, readonly) NSArray *topContent;
+@property (nonatomic, strong, readonly) NSArray *referrers;
 
 // Designated initializer
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
 - (void)refreshTrafficWithHandler:(void (^)(NSError *error))completionHandler;
 - (void)refreshContentWithHandler:(void (^)(NSError *error))completionHandler;
+- (void)refreshReferrersWithHandler:(void (^)(NSError *error))completionHandler;
 
 @end

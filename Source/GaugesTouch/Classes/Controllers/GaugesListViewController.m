@@ -96,6 +96,10 @@
         [gauge refreshContentWithHandler:^(NSError *error) {
             NSLog(@"Content refreshed for gauge '%@'", gauge.title);
         }];
+        
+        [gauge refreshReferrersWithHandler:^(NSError *error) {
+            NSLog(@"Referrers refreshed for gauge '%@'", gauge.title);
+        }];
     }
 }
 

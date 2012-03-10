@@ -11,6 +11,7 @@
 #import "ContentTableManager.h"
 #import "DatedViewSummary.h"
 #import "Gauge.h"
+#import "ReferrersTableManager.h"
 #import "TrafficTableManager.h"
 
 typedef enum {
@@ -26,6 +27,7 @@ typedef enum {
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) IBOutlet TrafficTableManager *trafficTableManager;
 @property (nonatomic, strong) IBOutlet ContentTableManager *contentTableManager;
+@property (nonatomic, strong) IBOutlet ReferrersTableManager *referrersTableManager;
 
 @property (nonatomic) Tab currentTab;
 @property (nonatomic, weak) IBOutlet UIButton *trafficButton;
@@ -50,6 +52,7 @@ typedef enum {
 @synthesize tableView = _tableView;
 @synthesize trafficTableManager = _trafficTableManager;
 @synthesize contentTableManager = _contentTableManager;
+@synthesize referrersTableManager = _referrersTableManager;
 
 @synthesize currentTab = _currentTab;
 @synthesize trafficButton = _trafficButton;
@@ -140,6 +143,7 @@ typedef enum {
         // Pass the gauge down to the table managers
         self.trafficTableManager.gauge = gauge;
         self.contentTableManager.gauge = gauge;
+        self.referrersTableManager.gauge = gauge;
     }
 }
 
@@ -224,6 +228,7 @@ typedef enum {
         case kContentTab:
             return self.contentTableManager;
         case kReferrersTab:
+            return self.referrersTableManager;
         default:
             return nil;
     }

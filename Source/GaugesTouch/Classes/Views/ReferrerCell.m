@@ -1,18 +1,18 @@
 //
-//  PageContentCell.m
+//  ReferrerCell.m
 //  GaugesTouch
 //
 //  Created by Tyler Stromberg on 3/9/12.
 //  Copyright (c) 2012 Tyler Stromberg. All rights reserved.
 //
 
-#import "PageContentCell.h"
+#import "ReferrerCell.h"
 
-#import "PageContent.h"
+#import "Referrer.h"
 
-@interface PageContentCell()
+@interface ReferrerCell()
 
-@property (nonatomic, weak) IBOutlet UILabel *titleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *hostLabel;
 @property (nonatomic, weak) IBOutlet UILabel *viewsLabel;
 @property (nonatomic, weak) IBOutlet UILabel *pathLabel;
 
@@ -23,11 +23,11 @@
 
 #pragma mark -
 
-@implementation PageContentCell
+@implementation ReferrerCell
 
-@synthesize pageContent = _pageContent;
+@synthesize referrer = _referrer;
 
-@synthesize titleLabel = _titleLabel;
+@synthesize hostLabel = _hostLabel;
 @synthesize viewsLabel = _viewsLabel;
 @synthesize pathLabel = _pathLabel;
 
@@ -35,9 +35,9 @@
 {
     if ((self = [super initWithCoder:aDecoder]))
     {
-        [self addObserver:self forKeyPath:@"pageContent.title" options:0 context:NULL];
-        [self addObserver:self forKeyPath:@"pageContent.views" options:0 context:NULL];
-        [self addObserver:self forKeyPath:@"pageContent.path" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"referrer.host" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"referrer.views" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"referrer.path" options:0 context:NULL];
     }
     
     return self;
@@ -45,9 +45,9 @@
 
 - (void)dealloc
 {
-    [self removeObserver:self forKeyPath:@"pageContent.title"];
-    [self removeObserver:self forKeyPath:@"pageContent.views"];
-    [self removeObserver:self forKeyPath:@"pageContent.path"];
+    [self removeObserver:self forKeyPath:@"referrer.host"];
+    [self removeObserver:self forKeyPath:@"referrer.views"];
+    [self removeObserver:self forKeyPath:@"referrer.path"];
 }
 
 
@@ -70,7 +70,7 @@
 - (void)updateLabelShadows
 {
     UIColor *shadowColor = (self.highlighted || self.selected) ? nil : [UIColor whiteColor];
-    self.titleLabel.shadowColor = shadowColor;
+    self.hostLabel.shadowColor = shadowColor;
     self.viewsLabel.shadowColor = shadowColor;
     self.pathLabel.shadowColor = shadowColor;
 }
@@ -83,17 +83,17 @@
                         change:(NSDictionary *)change
                        context:(void *)context
 {
-    if ([keyPath isEqualToString:@"pageContent.title"])
+    if ([keyPath isEqualToString:@"referrer.host"])
     {
-        self.titleLabel.text = self.pageContent.title;
+        self.hostLabel.text = self.referrer.host;
     }
-    else if ([keyPath isEqualToString:@"pageContent.views"])
+    else if ([keyPath isEqualToString:@"referrer.views"])
     {
-        self.viewsLabel.text = [self.pageContent formattedViews];
+        self.viewsLabel.text = [self.referrer formattedViews];
     }
-    else if ([keyPath isEqualToString:@"pageContent.path"])
+    else if ([keyPath isEqualToString:@"referrer.path"])
     {
-        self.pathLabel.text = self.pageContent.path;
+        self.pathLabel.text = self.referrer.path;
     }
 }
 

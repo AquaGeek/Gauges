@@ -10,12 +10,14 @@
 
 #import "DatedViewSummary.h"
 #import "PageContent.h"
+#import "Referrer.h"
 
 @interface Gauge()
 
 @property (nonatomic, strong, readwrite) DatedViewSummary *todayTraffic;
 @property (nonatomic, strong, readwrite) NSArray *recentTraffic;
 @property (nonatomic, strong, readwrite) NSArray *topContent;
+@property (nonatomic, strong, readwrite) NSArray *referrers;
 
 @end
 
@@ -133,6 +135,41 @@
         
         NSSortDescriptor *byViews = [NSSortDescriptor sortDescriptorWithKey:@"views" ascending:NO];
         self.topContent = [newContent sortedArrayUsingDescriptors:[NSArray arrayWithObject:byViews]];
+        
+        if (completionHandler != nil)
+        {
+            completionHandler(nil);
+        }
+    });
+}
+
+
+#pragma mark - Referrers
+
+@synthesize referrers = _referrers;
+
+- (void)refreshReferrersWithHandler:(void (^)(NSError *error))completionHandler
+{
+    srand(time(NULL));
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        //!!! TEMP: Fake some content data
+        NSMutableArray *newReferrers = [NSMutableArray arrayWithCapacity:15];
+        
+        for (NSInteger i = 0; i < 15; i++)
+        {
+            Referrer *referrer = [[Referrer alloc] init];
+            referrer.views = rand() % 1000;
+            referrer.url = @"http://get.gaug.es";
+            referrer.path = @"/";
+            referrer.host = @"get.gaug.es";
+            
+            [newReferrers addObject:referrer];
+        }
+        
+        NSSortDescriptor *byViews = [NSSortDescriptor sortDescriptorWithKey:@"views" ascending:NO];
+        self.referrers = [newReferrers sortedArrayUsingDescriptors:[NSArray arrayWithObject:byViews]];
         
         if (completionHandler != nil)
         {
