@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "AFNetworking.h"
+
 @implementation AppDelegate
 
 @synthesize window = _window;
@@ -27,7 +29,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     return YES;
 }
 
