@@ -18,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 - (IBAction)openInSafariTapped:(id)sender;
+- (void)updateNavigationButtons;
 
 @end
 
@@ -39,6 +40,9 @@
     
     // Remove the stop item from the nav bar - we just set it up that way because it's easiest
     self.navigationItem.leftBarButtonItem = nil;
+    
+    // Default the nav buttons
+    [self updateNavigationButtons];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -55,15 +59,21 @@
     // TODO: Open the URL in Mobile Safari
 }
 
+- (void)updateNavigationButtons
+{
+    self.backButton.enabled = self.webView.canGoBack;
+    self.forwardButton.enabled = self.webView.canGoForward;
+}
+
 
 #pragma mark - UIWebView Delegate Methods
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+    [self updateNavigationButtons];
+    
     // Swap out the reload button for the stop button
     self.navigationItem.rightBarButtonItem = self.stopItem;
-    
-    [self.activityIndicator startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
@@ -72,6 +82,7 @@
     self.navigationItem.rightBarButtonItem = self.reloadItem;
     
     [self.activityIndicator stopAnimating];
+    [self updateNavigationButtons];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
