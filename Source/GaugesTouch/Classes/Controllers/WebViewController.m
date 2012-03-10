@@ -27,6 +27,8 @@
 
 @implementation WebViewController
 
+@synthesize urlString = _urlString;
+
 @synthesize webView = _webView;
 @synthesize reloadItem = _reloadItem;
 @synthesize stopItem = _stopItem;
@@ -49,14 +51,15 @@
 {
     [super viewDidAppear:animated];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.apple.com"]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlString]]];
 }
 
 #pragma mark Button Actions
 
 - (IBAction)openInSafariTapped:(id)sender
 {
-    // TODO: Open the URL in Mobile Safari
+    // Open the URL in Mobile Safari
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.urlString]];
 }
 
 - (void)updateNavigationButtons
@@ -70,7 +73,7 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    [self updateNavigationButtons];
+    [self.activityIndicator startAnimating];
     
     // Swap out the reload button for the stop button
     self.navigationItem.rightBarButtonItem = self.stopItem;

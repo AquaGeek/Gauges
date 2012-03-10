@@ -11,8 +11,11 @@
 #import "ContentTableManager.h"
 #import "DatedViewSummary.h"
 #import "Gauge.h"
+#import "PageContent.h"
+#import "Referrer.h"
 #import "ReferrersTableManager.h"
 #import "TrafficTableManager.h"
+#import "WebViewController.h"
 
 typedef enum {
     kTrafficTab = 0,
@@ -108,6 +111,8 @@ typedef enum {
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -129,6 +134,25 @@ typedef enum {
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+
+#pragma mark -
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *selectedPath = self.tableView.indexPathForSelectedRow;
+    
+    if ([segue.identifier isEqualToString:@"ContentSegue"])
+    {
+        PageContent *selectedContent = [self.gauge.topContent objectAtIndex:selectedPath.row - 1];
+        ((WebViewController *)segue.destinationViewController).urlString = selectedContent.url;
+    }
+    else if ([segue.identifier isEqualToString:@"ReferrerSegue"])
+    {
+        Referrer *selectedReferrer = [self.gauge.referrers objectAtIndex:selectedPath.row - 1];
+        ((WebViewController *)segue.destinationViewController).urlString = selectedReferrer.url;
+    }
 }
 
 

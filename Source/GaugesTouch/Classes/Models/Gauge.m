@@ -161,9 +161,9 @@
         {
             Referrer *referrer = [[Referrer alloc] init];
             referrer.views = rand() % 1000;
-            referrer.url = @"http://get.gaug.es";
+            referrer.url = @"http://mongotips.com";
             referrer.path = @"/";
-            referrer.host = @"get.gaug.es";
+            referrer.host = @"mongotips.com";
             
             [newReferrers addObject:referrer];
         }
