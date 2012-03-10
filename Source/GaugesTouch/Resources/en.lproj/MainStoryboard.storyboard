@@ -488,15 +488,18 @@
         <scene sceneID="vpk-4T-mhf">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fF0-Xn-6A7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="DSI-MD-LNH" sceneMemberID="viewController">
+                <viewController id="DSI-MD-LNH" customClass="WebViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KrR-YW-374">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" id="U5h-0d-Hs7">
+                            <webView contentMode="scaleToFill" scalesPageToFit="YES" id="U5h-0d-Hs7">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DSI-MD-LNH" id="8m1-MC-zhf"/>
+                                </connections>
                             </webView>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="toolbar.png" id="mV4-tj-0zi">
                                 <rect key="frame" x="0.0" y="366" width="320" height="50"/>
@@ -513,6 +516,9 @@
                                 <state key="highlighted" image="icon_back_active@2x.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goBack" destination="U5h-0d-Hs7" eventType="touchUpInside" id="QGP-aV-SSv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tvX-lh-oEZ">
                                 <rect key="frame" x="283" y="377" width="27" height="27"/>
@@ -525,6 +531,9 @@
                                 <state key="highlighted" image="icon_safari_active@2x.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="openInSafariTapped:" destination="DSI-MD-LNH" eventType="touchUpInside" id="fJF-NE-Jwn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WHX-ur-v7U">
                                 <rect key="frame" x="55" y="377" width="27" height="27"/>
@@ -537,13 +546,37 @@
                                 <state key="highlighted" image="icon_forward_active@2x.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="goForward" destination="U5h-0d-Hs7" eventType="touchUpInside" id="f9r-BF-zcM"/>
+                                </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="white" id="eh1-dc-Dh5">
+                                <rect key="frame" x="150" y="381" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qQg-Og-J3L">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="0XC-AM-OUC"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="YkX-jC-lmI">
+                            <connections>
+                                <action selector="stopLoading" destination="U5h-0d-Hs7" id="wSg-FI-1V1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="0XC-AM-OUC">
+                            <connections>
+                                <action selector="reload" destination="U5h-0d-Hs7" id="4L9-a6-oun"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="eh1-dc-Dh5" id="u5E-ce-7uC"/>
+                        <outlet property="backButton" destination="U9x-lj-ptb" id="v8D-fp-Aak"/>
+                        <outlet property="forwardButton" destination="WHX-ur-v7U" id="2cj-8Q-RH7"/>
+                        <outlet property="reloadItem" destination="0XC-AM-OUC" id="X8d-Lb-hFC"/>
+                        <outlet property="stopItem" destination="YkX-jC-lmI" id="G2B-Ft-4ec"/>
+                        <outlet property="webView" destination="U5h-0d-Hs7" id="iL0-SH-1Hj"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1387" y="64"/>
@@ -640,6 +673,18 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TrafficTableManager.h"/>
             <relationships>
                 <relationship kind="outlet" name="trafficBarGraph" candidateClass="TrafficBarGraph"/>
+            </relationships>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="openInSafariTapped:"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="forwardButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reloadItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="stopItem" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
     </classes>
