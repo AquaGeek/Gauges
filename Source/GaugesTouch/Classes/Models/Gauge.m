@@ -91,36 +91,41 @@
 
 - (void)refreshTrafficWithHandler:(void (^)(NSError *error))completionHandler
 {
-    srand(time(NULL));
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //!!! TEMP: Fake some traffic
-        NSDictionary *todaysTrafficDict = [NSDictionary dictionaryWithObjectsAndKeys:@"2012-01-30", @"date",
-                                           [NSNumber numberWithLong:rand() % 1000 + 1000], @"views",
-                                           [NSNumber numberWithLong:rand() % 1000], @"people", nil];
-        self.todayTraffic = [[DatedViewSummary alloc] initWithDictionary:todaysTrafficDict];
-        
-        NSMutableArray *newTraffic = [NSMutableArray arrayWithCapacity:30];
-        
-        for (NSInteger i = 1; i < 30; i++)
-        {
-            NSString *dateString = [NSString stringWithFormat:@"2012-01-%02d", i];
-            NSDictionary *trafficDict = [NSDictionary dictionaryWithObjectsAndKeys:dateString, @"date",
-                                         [NSNumber numberWithLong:rand() % 1000 + 1000], @"views",
-                                         [NSNumber numberWithLong:rand() % 1000], @"people", nil];
-            
-            DatedViewSummary *traffic = [[DatedViewSummary alloc] initWithDictionary:trafficDict];
-            [newTraffic addObject:traffic];
-        }
-        
-        self.recentTraffic = newTraffic;
-        
-        if (completionHandler != nil)
-        {
-            completionHandler(nil);
-        }
-    });
+    [[GaugesAPIClient sharedClient] getPath:[NSString stringWithFormat:@"gauges/%@", self.gaugeID]
+                                 parameters:nil
+                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if ([responseObject isKindOfClass:[NSDictionary class]])
+         {
+             responseObject = [responseObject objectForKey:@"gauge"];
+             
+             NSDictionary *todaysTraffic = [responseObject objectForKey:@"today"];
+             _todayTraffic = [[DatedViewSummary alloc] initWithDictionary:todaysTraffic];
+             
+             NSArray *rawTraffic = [responseObject objectForKey:@"recent_days"];
+             NSMutableArray *newTraffic = [NSMutableArray arrayWithCapacity:rawTraffic.count];
+             
+             for (NSDictionary *trafficInfo in rawTraffic)
+             {
+                 DatedViewSummary *traffic = [[DatedViewSummary alloc] initWithDictionary:trafficInfo];
+                 [newTraffic addObject:traffic];
+             }
+             
+             self.recentTraffic = newTraffic;
+         }
+         
+         if (completionHandler != nil)
+         {
+             completionHandler(nil);
+         }
+     }
+                                    failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         if (completionHandler != nil)
+         {
+             completionHandler(error);
+         }
+     }];
 }
 
 
