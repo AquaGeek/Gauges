@@ -24,6 +24,19 @@
 @synthesize path = _path;
 @synthesize url = _url;
 
+- (id)initWithDictionary:(NSDictionary *)dictionary
+{
+    if ((self = [super init]))
+    {
+        _host = [dictionary objectForKey:@"host"];
+        _views = [[dictionary objectForKey:@"views"] longValue];
+        _path = [dictionary objectForKey:@"path"];
+        _url = [dictionary objectForKey:@"url"];
+    }
+    
+    return self;
+}
+
 - (NSNumberFormatter *)numberFormatter
 {
     static NSNumberFormatter *numberFormatter = nil;

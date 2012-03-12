@@ -217,6 +217,20 @@ typedef enum {
         self.tableView.tableHeaderView = activeManager.tableHeaderView;
         self.currentTabTitleLabel.text = activeManager.title;
         [self.tableView reloadData];
+        
+        // Refresh the tab content, as appropriate
+        if (currentTab == kContentTab && self.gauge.topContent == nil)
+        {
+            [self.gauge refreshContentWithHandler:^(NSError *error) {
+                [self.tableView reloadData];
+            }];
+        }
+        else if (currentTab == kReferrersTab && self.gauge.referrers == nil)
+        {
+            [self.gauge refreshReferrersWithHandler:^(NSError *error) {
+                [self.tableView reloadData];
+            }];
+        }
     }
 }
 

@@ -39,7 +39,7 @@
     // Configure the traffic graph
     self.trafficBarGraph.viewsColor = [UIColor colorWithRed:0xBA/255.0f green:0xDD/255.0f blue:0xCC/255.0f alpha:1.0f];
     self.trafficBarGraph.peopleColor = [UIColor colorWithRed:0x97/255.0f green:0xCC/255.0f blue:0xB1/255.0f alpha:1.0f];
-    self.trafficBarGraph.traffic = self.gauge.recentTraffic;
+    self.trafficBarGraph.traffic = self.gauge.recentTrafficAscending;
 }
 
 - (void)setGauge:(Gauge *)gauge
@@ -54,7 +54,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.gauge.recentTrafficDescending.count + 1;
+    return self.gauge.recentTraffic.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,7 +68,7 @@
     // Configure the cell
     if (indexPath.row > 0)
     {
-        DatedViewSummary *traffic = [self.gauge.recentTrafficDescending objectAtIndex:indexPath.row - 1];
+        DatedViewSummary *traffic = [self.gauge.recentTraffic objectAtIndex:indexPath.row - 1];
         ((TrafficCell *)cell).traffic = traffic;
     }
     

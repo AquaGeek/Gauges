@@ -11,6 +11,7 @@
 #import "Gauge.h"
 #import "GaugeCell.h"
 #import "GaugeDetailViewController.h"
+#import "User.h"
 
 @interface GaugesListViewController()
 
@@ -31,10 +32,6 @@
 {
     if ((self = [super initWithCoder:aDecoder]))
     {
-        NSDictionary *gaugeDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Gauge 1", @"title", nil];
-        NSDictionary *gaugeDict2 = [NSDictionary dictionaryWithObjectsAndKeys:@"Test Gauge", @"title", nil];
-        _gauges = [NSArray arrayWithObjects:[[Gauge alloc] initWithDictionary:gaugeDict],
-                   [[Gauge alloc] initWithDictionary:gaugeDict2], nil];
     }
     
     return self;
@@ -85,20 +82,12 @@
 {
     [super viewDidAppear:animated];
     
-    // Update our data
-    // TODO: Better handling - update periodically instead of every time the view is shown
-    for (Gauge *gauge in self.gauges)
+    // Update our data if necessary
+    if ([User currentUser].gauges == nil)
     {
-        [gauge refreshTrafficWithHandler:^(NSError *error) {
-            NSLog(@"Traffic refreshed for gauge '%@'", gauge.title);
-        }];
-        
-        [gauge refreshContentWithHandler:^(NSError *error) {
-            NSLog(@"Content refreshed for gauge '%@'", gauge.title);
-        }];
-        
-        [gauge refreshReferrersWithHandler:^(NSError *error) {
-            NSLog(@"Referrers refreshed for gauge '%@'", gauge.title);
+        [[User currentUser] refreshGaugesWithHandler:^(NSError *error) {
+            self.gauges = [User currentUser].gauges;
+            [self.tableView reloadData];
         }];
     }
 }

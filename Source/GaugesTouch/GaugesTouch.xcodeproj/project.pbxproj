@@ -43,6 +43,14 @@
 		2F178D7C14F6123E006CFDF7 /* shadow_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7B14F6123E006CFDF7 /* shadow_bottom@2x.png */; };
 		2F178D7F14F6172C006CFDF7 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7D14F6172C006CFDF7 /* white.png */; };
 		2F178D8014F6172C006CFDF7 /* white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F178D7E14F6172C006CFDF7 /* white@2x.png */; };
+		2F220912150BD6C500CC9A1A /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F220906150BD6C500CC9A1A /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2F220913150BD6C500CC9A1A /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F220908150BD6C500CC9A1A /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2F220914150BD6C500CC9A1A /* AFJSONRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F22090A150BD6C500CC9A1A /* AFJSONRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2F220915150BD6C500CC9A1A /* AFJSONUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F22090C150BD6C500CC9A1A /* AFJSONUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2F220916150BD6C500CC9A1A /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F22090E150BD6C500CC9A1A /* AFNetworkActivityIndicatorManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2F220917150BD6C500CC9A1A /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F220911150BD6C500CC9A1A /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2F22091B150BDAF500CC9A1A /* GaugesAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F22091A150BDAF500CC9A1A /* GaugesAPIClient.m */; };
+		2F22091E150BDC1E00CC9A1A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F22091D150BDC1E00CC9A1A /* User.m */; };
 		2FAB9D9D150AEF5B005D8D2F /* ReferrerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB9D9C150AEF5B005D8D2F /* ReferrerCell.m */; };
 		2FAB9DA8150AF330005D8D2F /* icon_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAB9DA3150AF330005D8D2F /* icon_back@2x.png */; };
 		2FAB9DA9150AF330005D8D2F /* icon_forward_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAB9DA4150AF330005D8D2F /* icon_forward_active@2x.png */; };
@@ -111,6 +119,23 @@
 		2F178D7B14F6123E006CFDF7 /* shadow_bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow_bottom@2x.png"; sourceTree = "<group>"; };
 		2F178D7D14F6172C006CFDF7 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		2F178D7E14F6172C006CFDF7 /* white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "white@2x.png"; sourceTree = "<group>"; };
+		2F220905150BD6C500CC9A1A /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPClient.h; path = ../../AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
+		2F220906150BD6C500CC9A1A /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPClient.m; path = ../../AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
+		2F220907150BD6C500CC9A1A /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = ../../AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		2F220908150BD6C500CC9A1A /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = ../../AFNetworking/AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		2F220909150BD6C500CC9A1A /* AFJSONRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFJSONRequestOperation.h; path = ../../AFNetworking/AFNetworking/AFJSONRequestOperation.h; sourceTree = "<group>"; };
+		2F22090A150BD6C500CC9A1A /* AFJSONRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFJSONRequestOperation.m; path = ../../AFNetworking/AFNetworking/AFJSONRequestOperation.m; sourceTree = "<group>"; };
+		2F22090B150BD6C500CC9A1A /* AFJSONUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFJSONUtilities.h; path = ../../AFNetworking/AFNetworking/AFJSONUtilities.h; sourceTree = "<group>"; };
+		2F22090C150BD6C500CC9A1A /* AFJSONUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFJSONUtilities.m; path = ../../AFNetworking/AFNetworking/AFJSONUtilities.m; sourceTree = "<group>"; };
+		2F22090D150BD6C500CC9A1A /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworkActivityIndicatorManager.h; path = ../../AFNetworking/AFNetworking/AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		2F22090E150BD6C500CC9A1A /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = ../../AFNetworking/AFNetworking/AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		2F22090F150BD6C500CC9A1A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = ../../AFNetworking/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		2F220910150BD6C500CC9A1A /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = ../../AFNetworking/AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		2F220911150BD6C500CC9A1A /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = ../../AFNetworking/AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		2F220919150BDAF500CC9A1A /* GaugesAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugesAPIClient.h; sourceTree = "<group>"; };
+		2F22091A150BDAF500CC9A1A /* GaugesAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaugesAPIClient.m; sourceTree = "<group>"; };
+		2F22091C150BDC1E00CC9A1A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		2F22091D150BDC1E00CC9A1A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		2FAB9D9B150AEF5B005D8D2F /* ReferrerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferrerCell.h; sourceTree = "<group>"; };
 		2FAB9D9C150AEF5B005D8D2F /* ReferrerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReferrerCell.m; sourceTree = "<group>"; };
 		2FAB9DA3150AF330005D8D2F /* icon_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_back@2x.png"; sourceTree = "<group>"; };
@@ -195,6 +220,7 @@
 				2F178D1514F5E259006CFDF7 /* AppDelegate.m */,
 				2F178D3614F5F1B1006CFDF7 /* Controllers */,
 				2F178D2A14F5E811006CFDF7 /* Models */,
+				2F220918150BDADF00CC9A1A /* Networking */,
 				2FE34E4C15084C8500FA0B58 /* Utility */,
 				2F178D4414F600AF006CFDF7 /* Views */,
 			);
@@ -232,6 +258,8 @@
 				2FE34E5515085C7500FA0B58 /* PageContent.m */,
 				2FB78C001509DB140049AF6C /* Referrer.h */,
 				2FB78C011509DB140049AF6C /* Referrer.m */,
+				2F22091C150BDC1E00CC9A1A /* User.h */,
+				2F22091D150BDC1E00CC9A1A /* User.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -304,6 +332,37 @@
 				2FE34E491508468200FA0B58 /* TrafficCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2F220903150BD68900CC9A1A /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				2F220905150BD6C500CC9A1A /* AFHTTPClient.h */,
+				2F220906150BD6C500CC9A1A /* AFHTTPClient.m */,
+				2F220907150BD6C500CC9A1A /* AFHTTPRequestOperation.h */,
+				2F220908150BD6C500CC9A1A /* AFHTTPRequestOperation.m */,
+				2F220909150BD6C500CC9A1A /* AFJSONRequestOperation.h */,
+				2F22090A150BD6C500CC9A1A /* AFJSONRequestOperation.m */,
+				2F22090B150BD6C500CC9A1A /* AFJSONUtilities.h */,
+				2F22090C150BD6C500CC9A1A /* AFJSONUtilities.m */,
+				2F22090D150BD6C500CC9A1A /* AFNetworkActivityIndicatorManager.h */,
+				2F22090E150BD6C500CC9A1A /* AFNetworkActivityIndicatorManager.m */,
+				2F22090F150BD6C500CC9A1A /* AFNetworking.h */,
+				2F220910150BD6C500CC9A1A /* AFURLConnectionOperation.h */,
+				2F220911150BD6C500CC9A1A /* AFURLConnectionOperation.m */,
+			);
+			name = AFNetworking;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2F220918150BDADF00CC9A1A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				2F220919150BDAF500CC9A1A /* GaugesAPIClient.h */,
+				2F22091A150BDAF500CC9A1A /* GaugesAPIClient.m */,
+				2F220903150BD68900CC9A1A /* AFNetworking */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		2FB78BEA1509C8B30049AF6C /* Table Managers */ = {
@@ -444,6 +503,14 @@
 				2FB78C021509DB140049AF6C /* Referrer.m in Sources */,
 				2FAB9D9D150AEF5B005D8D2F /* ReferrerCell.m in Sources */,
 				2FAB9DB6150AF4BF005D8D2F /* WebViewController.m in Sources */,
+				2F220912150BD6C500CC9A1A /* AFHTTPClient.m in Sources */,
+				2F220913150BD6C500CC9A1A /* AFHTTPRequestOperation.m in Sources */,
+				2F220914150BD6C500CC9A1A /* AFJSONRequestOperation.m in Sources */,
+				2F220915150BD6C500CC9A1A /* AFJSONUtilities.m in Sources */,
+				2F220916150BD6C500CC9A1A /* AFNetworkActivityIndicatorManager.m in Sources */,
+				2F220917150BD6C500CC9A1A /* AFURLConnectionOperation.m in Sources */,
+				2F22091B150BDAF500CC9A1A /* GaugesAPIClient.m in Sources */,
+				2F22091E150BDC1E00CC9A1A /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

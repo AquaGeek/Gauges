@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSString *url;
 
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 - (NSString *)formattedViews;
 
 @end

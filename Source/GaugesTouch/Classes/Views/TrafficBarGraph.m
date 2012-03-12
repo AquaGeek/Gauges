@@ -10,7 +10,7 @@
 
 #import "DatedViewSummary.h"
 
-const CGFloat kMinHeight = 4.0f;
+const CGFloat kMinHeight = 1.0f;
 const CGFloat kXSpacing = 1.0f;
 
 @interface TrafficBarGraph() {
