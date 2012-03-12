@@ -19,7 +19,7 @@
 @property (nonatomic, strong, readonly) DatedViewSummary *todayTraffic;
 @property (nonatomic, strong, readonly) NSArray *weekTraffic;
 @property (nonatomic, strong, readonly) NSArray *recentTraffic;
-@property (nonatomic, strong, readonly) NSArray *recentTrafficDescending;
+@property (nonatomic, strong, readonly) NSArray *recentTrafficAscending;
 @property (nonatomic, strong, readonly) NSArray *topContent;
 @property (nonatomic, strong, readonly) NSArray *referrers;
 

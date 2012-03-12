@@ -9,6 +9,7 @@
 #import "Gauge.h"
 
 #import "DatedViewSummary.h"
+#import "GaugesAPIClient.h"
 #import "PageContent.h"
 #import "Referrer.h"
 
@@ -30,6 +31,7 @@
 @synthesize title = _title;
 @synthesize timeZoneName = _timeZoneName;
 @synthesize enabled = _enabled;
+@synthesize todayTraffic = _todayTraffic;
 
 
 #pragma mark - Object Lifecycle
@@ -42,6 +44,20 @@
         _title = [dictionary valueForKey:@"title"];
         _timeZoneName = [dictionary valueForKey:@"tz"];
         _enabled = [[dictionary valueForKey:@"enabled"] boolValue];
+        
+        NSDictionary *todaysTraffic = [dictionary objectForKey:@"today"];
+        _todayTraffic = [[DatedViewSummary alloc] initWithDictionary:todaysTraffic];
+        
+        NSArray *rawTraffic = [dictionary objectForKey:@"recent_days"];
+        NSMutableArray *newTraffic = [NSMutableArray arrayWithCapacity:rawTraffic.count];
+        
+        for (NSDictionary *trafficInfo in rawTraffic)
+        {
+            DatedViewSummary *traffic = [[DatedViewSummary alloc] initWithDictionary:trafficInfo];
+            [newTraffic addObject:traffic];
+        }
+        
+        self.recentTraffic = newTraffic;
     }
     
     return self;
@@ -50,12 +66,11 @@
 
 #pragma mark - Traffic
 
-@synthesize todayTraffic = _todayTraffic;
 @synthesize recentTraffic = _recentTraffic;
 
 - (NSArray *)weekTraffic
 {
-    NSArray *traffic = self.recentTraffic;
+    NSArray *traffic = self.recentTrafficAscending;
     NSRange weekRange;
     
     if (traffic.count > 7)
@@ -68,10 +83,10 @@
     return [traffic subarrayWithRange:weekRange];
 }
 
-- (NSArray *)recentTrafficDescending
+- (NSArray *)recentTrafficAscending
 {
-    NSSortDescriptor *descendingDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-    return [self.recentTraffic sortedArrayUsingDescriptors:[NSArray arrayWithObject:descendingDate]];
+    NSSortDescriptor *ascendingDate = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    return [self.recentTraffic sortedArrayUsingDescriptors:[NSArray arrayWithObject:ascendingDate]];
 }
 
 - (void)refreshTrafficWithHandler:(void (^)(NSError *error))completionHandler
@@ -115,32 +130,37 @@
 
 - (void)refreshContentWithHandler:(void (^)(NSError *))completionHandler
 {
-    srand(time(NULL));
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //!!! TEMP: Fake some content data
-        NSMutableArray *newContent = [NSMutableArray arrayWithCapacity:15];
-        
-        for (NSInteger i = 0; i < 15; i++)
-        {
-            PageContent *content = [[PageContent alloc] init];
-            content.views = rand() % 1000;
-            content.url = @"http://get.gaug.es";
-            content.path = @"/";
-            content.title = @"Gaug.es";
-            
-            [newContent addObject:content];
-        }
-        
-        NSSortDescriptor *byViews = [NSSortDescriptor sortDescriptorWithKey:@"views" ascending:NO];
-        self.topContent = [newContent sortedArrayUsingDescriptors:[NSArray arrayWithObject:byViews]];
-        
-        if (completionHandler != nil)
-        {
-            completionHandler(nil);
-        }
-    });
+    [[GaugesAPIClient sharedClient] getPath:[NSString stringWithFormat:@"gauges/%@/content", self.gaugeID]
+                                 parameters:nil
+                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if ([responseObject isKindOfClass:[NSDictionary class]])
+         {
+             NSArray *rawContent = [responseObject objectForKey:@"content"];
+             NSMutableArray *newContent = [NSMutableArray arrayWithCapacity:rawContent.count];
+             
+             for (NSDictionary *contentInfo in rawContent)
+             {
+                 PageContent *content = [[PageContent alloc] initWithDictionary:contentInfo];
+                 [newContent addObject:content];
+             }
+             
+             NSSortDescriptor *byViews = [NSSortDescriptor sortDescriptorWithKey:@"views" ascending:NO];
+             self.topContent = [newContent sortedArrayUsingDescriptors:[NSArray arrayWithObject:byViews]];
+         }
+         
+         if (completionHandler != nil)
+         {
+             completionHandler(nil);
+         }
+     }
+                                    failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         if (completionHandler != nil)
+         {
+             completionHandler(error);
+         }
+     }];
 }
 
 
@@ -150,32 +170,37 @@
 
 - (void)refreshReferrersWithHandler:(void (^)(NSError *error))completionHandler
 {
-    srand(time(NULL));
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        //!!! TEMP: Fake some content data
-        NSMutableArray *newReferrers = [NSMutableArray arrayWithCapacity:15];
-        
-        for (NSInteger i = 0; i < 15; i++)
-        {
-            Referrer *referrer = [[Referrer alloc] init];
-            referrer.views = rand() % 1000;
-            referrer.url = @"http://mongotips.com";
-            referrer.path = @"/";
-            referrer.host = @"mongotips.com";
-            
-            [newReferrers addObject:referrer];
-        }
-        
-        NSSortDescriptor *byViews = [NSSortDescriptor sortDescriptorWithKey:@"views" ascending:NO];
-        self.referrers = [newReferrers sortedArrayUsingDescriptors:[NSArray arrayWithObject:byViews]];
-        
-        if (completionHandler != nil)
-        {
-            completionHandler(nil);
-        }
-    });
+    [[GaugesAPIClient sharedClient] getPath:[NSString stringWithFormat:@"gauges/%@/referrers", self.gaugeID]
+                                 parameters:nil
+                                    success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         if ([responseObject isKindOfClass:[NSDictionary class]])
+         {
+             NSArray *rawReferrers = [responseObject objectForKey:@"referrers"];
+             NSMutableArray *newReferrers = [NSMutableArray arrayWithCapacity:rawReferrers.count];
+             
+             for (NSDictionary *referrerInfo in rawReferrers)
+             {
+                 Referrer *referrer = [[Referrer alloc] initWithDictionary:referrerInfo];
+                 [newReferrers addObject:referrer];
+             }
+             
+             NSSortDescriptor *byViews = [NSSortDescriptor sortDescriptorWithKey:@"views" ascending:NO];
+             self.referrers = [newReferrers sortedArrayUsingDescriptors:[NSArray arrayWithObject:byViews]];
+         }
+         
+         if (completionHandler != nil)
+         {
+             completionHandler(nil);
+         }
+     }
+                                    failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
+         if (completionHandler != nil)
+         {
+             completionHandler(error);
+         }
+     }];
 }
 
 @end
