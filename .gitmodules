@@ -1,3 +1,9 @@
 [submodule "Source/AFNetworking"]
 	path = Source/AFNetworking
 	url = git@github.com:AFNetworking/AFNetworking.git
+[submodule "Source/libPusher"]
+	path = Source/libPusher
+	url = git@github.com:AquaGeek/libPusher.git
+[submodule "Source/SocketRocket"]
+	path = Source/SocketRocket
+	url = git@github.com:square/SocketRocket.git
