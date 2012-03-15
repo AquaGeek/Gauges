@@ -13,7 +13,7 @@
 @property (nonatomic, strong, readonly) NSArray *gauges;
 
 + (User *)currentUser;
-+ (void)setCurrentUser:(User *)user;
++ (void)authenticateWithEmail:(NSString *)email password:(NSString *)password handler:(void (^)(NSError *error))handler;
 
 - (void)refreshGaugesWithHandler:(void (^)(NSError *error))handler;
 

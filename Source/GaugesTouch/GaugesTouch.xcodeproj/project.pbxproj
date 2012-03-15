@@ -71,6 +71,12 @@
 		2FE34E4A1508468200FA0B58 /* TrafficCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E491508468200FA0B58 /* TrafficCell.m */; };
 		2FE34E4F15084C9A00FA0B58 /* NSDateFormatter+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E4E15084C9A00FA0B58 /* NSDateFormatter+Additions.m */; };
 		2FE34E5615085C7500FA0B58 /* PageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE34E5515085C7500FA0B58 /* PageContent.m */; };
+		2FF12814150DBA97001EE5F0 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF12812150DBA97001EE5F0 /* background.png */; };
+		2FF12815150DBA97001EE5F0 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF12813150DBA97001EE5F0 /* background@2x.png */; };
+		2FF12818150DBB4B001EE5F0 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FF12817150DBB4B001EE5F0 /* LoginViewController.m */; };
+		2FF1281A150DC2B7001EE5F0 /* button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF12819150DC2B7001EE5F0 /* button@2x.png */; };
+		2FF1281D150DC362001EE5F0 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF1281B150DC362001EE5F0 /* logo.png */; };
+		2FF1281E150DC362001EE5F0 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF1281C150DC362001EE5F0 /* logo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +174,14 @@
 		2FE34E4E15084C9A00FA0B58 /* NSDateFormatter+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Additions.m"; sourceTree = "<group>"; };
 		2FE34E5415085C7500FA0B58 /* PageContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContent.h; sourceTree = "<group>"; };
 		2FE34E5515085C7500FA0B58 /* PageContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContent.m; sourceTree = "<group>"; };
+		2FF1280F150DB02C001EE5F0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		2FF12812150DBA97001EE5F0 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		2FF12813150DBA97001EE5F0 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		2FF12816150DBB4B001EE5F0 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2FF12817150DBB4B001EE5F0 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2FF12819150DC2B7001EE5F0 /* button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button@2x.png"; sourceTree = "<group>"; };
+		2FF1281B150DC362001EE5F0 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		2FF1281C150DC362001EE5F0 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +220,7 @@
 		2F178CF214F5E207006CFDF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2FF1280F150DB02C001EE5F0 /* Security.framework */,
 				2F178CF314F5E207006CFDF7 /* UIKit.framework */,
 				2F178CF514F5E207006CFDF7 /* Foundation.framework */,
 				2F178CF714F5E207006CFDF7 /* CoreGraphics.framework */,
@@ -267,6 +282,8 @@
 		2F178D3614F5F1B1006CFDF7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2FF12816150DBB4B001EE5F0 /* LoginViewController.h */,
+				2FF12817150DBB4B001EE5F0 /* LoginViewController.m */,
 				2F178D3714F5F1B1006CFDF7 /* GaugesListViewController.h */,
 				2F178D3814F5F1B1006CFDF7 /* GaugesListViewController.m */,
 				2F178D4114F5FE30006CFDF7 /* GaugeDetailViewController.h */,
@@ -281,9 +298,12 @@
 		2F178D3A14F5F65A006CFDF7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				2FF12812150DBA97001EE5F0 /* background.png */,
+				2FF12813150DBA97001EE5F0 /* background@2x.png */,
 				2F178D5914F60E73006CFDF7 /* black_linen_v2.png */,
 				2F178D5A14F60E73006CFDF7 /* black_linen_v2@2x.png */,
 				2F178D7914F61237006CFDF7 /* blue@2x.png */,
+				2FF12819150DC2B7001EE5F0 /* button@2x.png */,
 				2FAB9DB2150AF43C005D8D2F /* icon_back_active@2x.png */,
 				2FAB9DA3150AF330005D8D2F /* icon_back@2x.png */,
 				2FAB9DA4150AF330005D8D2F /* icon_forward_active@2x.png */,
@@ -292,6 +312,8 @@
 				2FAB9DA7150AF330005D8D2F /* icon_safari@2x.png */,
 				2F178D7514F6108A006CFDF7 /* indicator.png */,
 				2F178D7614F6108A006CFDF7 /* indicator@2x.png */,
+				2FF1281B150DC362001EE5F0 /* logo.png */,
+				2FF1281C150DC362001EE5F0 /* logo@2x.png */,
 				2F178D5514F60CF7006CFDF7 /* nav_bar_bg.png */,
 				2F178D5614F60CF7006CFDF7 /* nav_bar_bg@2x.png */,
 				2F178D7B14F6123E006CFDF7 /* shadow_bottom@2x.png */,
@@ -474,6 +496,11 @@
 				2FAB9DB0150AF366005D8D2F /* toolbar.png in Resources */,
 				2FAB9DB1150AF366005D8D2F /* toolbar@2x.png in Resources */,
 				2FAB9DB3150AF43C005D8D2F /* icon_back_active@2x.png in Resources */,
+				2FF12814150DBA97001EE5F0 /* background.png in Resources */,
+				2FF12815150DBA97001EE5F0 /* background@2x.png in Resources */,
+				2FF1281A150DC2B7001EE5F0 /* button@2x.png in Resources */,
+				2FF1281D150DC362001EE5F0 /* logo.png in Resources */,
+				2FF1281E150DC362001EE5F0 /* logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +538,7 @@
 				2F220917150BD6C500CC9A1A /* AFURLConnectionOperation.m in Sources */,
 				2F22091B150BDAF500CC9A1A /* GaugesAPIClient.m in Sources */,
 				2F22091E150BDC1E00CC9A1A /* User.m in Sources */,
+				2FF12818150DBB4B001EE5F0 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

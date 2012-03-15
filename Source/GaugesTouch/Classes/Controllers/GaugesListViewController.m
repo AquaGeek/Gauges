@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong, readwrite) NSArray *gauges;
 
+- (IBAction)logoutTapped:(id)sender;
+
 @end
 
 
@@ -76,6 +78,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -119,6 +123,12 @@
         Gauge *gauge = [self.gauges objectAtIndex:selectedIndexPath.row];
         ((GaugeDetailViewController *)segue.destinationViewController).gauge = gauge;
     }
+}
+
+- (IBAction)logoutTapped:(id)sender
+{
+    // TODO: Clear the credentials
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

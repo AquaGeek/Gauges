@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "AFNetworking.h"
+#import "User.h"
 
 @implementation AppDelegate
 
@@ -30,6 +31,22 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UINavigationController *navController = [mainStoryboard instantiateInitialViewController];
+    
+    // Check if logged in or not and adjust the nav stack accordingly
+    if ([User currentUser] != nil)
+    {
+        NSMutableArray *viewControllers = [navController.viewControllers mutableCopy];
+        UIViewController *listVC = [mainStoryboard instantiateViewControllerWithIdentifier:@"ListView"];
+        [viewControllers addObject:listVC];
+        navController.viewControllers = viewControllers;
+    }
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
