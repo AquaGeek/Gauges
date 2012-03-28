@@ -12,10 +12,10 @@
 
 @interface Gauge : NSObject
 
-@property (nonatomic, strong) NSString *gaugeID;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *timeZoneName;
-@property (nonatomic, getter = isEnabled) BOOL enabled;
+@property (nonatomic, strong, readonly) NSString *gaugeID;
+@property (nonatomic, strong, readonly) NSString *title;
+@property (nonatomic, strong, readonly) NSString *timeZoneName;
+@property (nonatomic, readonly, getter = isEnabled) BOOL enabled;
 @property (nonatomic, strong, readonly) DatedViewSummary *todayTraffic;
 @property (nonatomic, strong, readonly) NSArray *weekTraffic;
 @property (nonatomic, strong, readonly) NSArray *recentTraffic;

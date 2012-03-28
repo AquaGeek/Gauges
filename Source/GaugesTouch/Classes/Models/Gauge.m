@@ -8,19 +8,26 @@
 
 #import "Gauge.h"
 
+#import "PTPusher.h"
+#import "PTPusherEvent.h"
+
 #import "DatedViewSummary.h"
 #import "GaugesAPIClient.h"
 #import "PageContent.h"
 #import "Referrer.h"
 
-@interface Gauge()
+@interface Gauge() <PTPusherDelegate>
 
 @property (nonatomic, strong, readwrite) DatedViewSummary *todayTraffic;
 @property (nonatomic, strong, readwrite) NSArray *recentTraffic;
 @property (nonatomic, strong, readwrite) NSArray *topContent;
 @property (nonatomic, strong, readwrite) NSArray *referrers;
 
+@property (nonatomic, strong) PTPusherPrivateChannel *privateGaugeChannel;
+
 @end
+
+static PTPusher *pusherClient = nil;
 
 
 #pragma mark -
@@ -32,6 +39,8 @@
 @synthesize timeZoneName = _timeZoneName;
 @synthesize enabled = _enabled;
 @synthesize todayTraffic = _todayTraffic;
+
+@synthesize privateGaugeChannel = _privateGaugeChannel;
 
 
 #pragma mark - Object Lifecycle
@@ -58,9 +67,35 @@
         }
         
         self.recentTraffic = newTraffic;
+        
+        // Set up the Pusher client and private channel
+        // TODO: Move the pusher client to the GaugesAPIClient class (it should be shared across all gauges)
+        if (pusherClient == nil)
+        {
+            pusherClient = [PTPusher pusherWithKey:@"887bd32ce6b7c2049e0b" connectAutomatically:NO encrypted:NO];
+            pusherClient.delegate = self;
+            pusherClient.authorizationURL = [NSURL URLWithString:@"https://secure.gaug.es/pusher/auth"];
+            [pusherClient connect];
+        }
+        
+        _privateGaugeChannel = [pusherClient subscribeToPrivateChannelNamed:self.gaugeID];
+        
+        // Listen for events
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(didReceiveChannelEventNotification:)
+                                                     name:PTPusherEventReceivedNotification
+                                                   object:_privateGaugeChannel];
     }
     
     return self;
+}
+
+- (void)dealloc
+{
+    // Cleanup
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:PTPusherEventReceivedNotification
+                                                  object:_privateGaugeChannel];
 }
 
 
@@ -206,6 +241,71 @@
              completionHandler(error);
          }
      }];
+}
+
+
+#pragma mark - Pusher
+
+- (void)pusher:(PTPusher *)pusher willAuthorizeChannelWithRequest:(NSMutableURLRequest *)request
+{
+    // Tack on the X-Gauges-Token
+    NSString *apiToken = [[GaugesAPIClient sharedClient] defaultValueForHeader:@"X-Gauges-Token"];
+    [request setValue:apiToken forHTTPHeaderField:@"X-Gauges-Token"];
+}
+
+- (void)pusher:(PTPusher *)pusher connectionDidConnect:(PTPusherConnection *)connection
+{
+    NSLog(@"We're in!");
+}
+
+- (void)pusher:(PTPusher *)pusher connection:(PTPusherConnection *)connection failedWithError:(NSError *)error
+{
+    NSLog(@"uh oh...");
+}
+
+- (void)pusher:(PTPusher *)pusher didSubscribeToChannel:(PTPusherChannel *)channel
+{
+    NSLog(@"We subscribed??");
+}
+
+- (void)pusher:(PTPusher *)pusher didFailToSubscribeToChannel:(PTPusherChannel *)channel withError:(NSError *)error
+{
+    NSLog(@"Argh... something went wrong...");
+}
+
+- (void)didReceiveChannelEventNotification:(NSNotification *)notification
+{
+    NSDictionary *userInfo = [notification userInfo];
+    PTPusherEvent *event = (PTPusherEvent *)[userInfo objectForKey:PTPusherEventUserInfoKey];
+    
+    if ([event.name isEqualToString:@"hit"])
+    {
+        // Increment any counters as necessary
+        // TODO: These objects should be shared across everything
+        DatedViewSummary *weeklyToday = [self.weekTraffic lastObject];
+        DatedViewSummary *monthlyToday = [self.recentTraffic lastObject];
+        
+        NSDictionary *uniques = [event.data objectForKey:@"u"];
+        CFBooleanRef dailyUnique = (__bridge CFBooleanRef)[uniques objectForKey:@"day"];
+        
+        if (CFBooleanGetValue(dailyUnique) == true)
+        {
+            self.todayTraffic.people++;
+            weeklyToday.people++;
+            monthlyToday.people++;
+        }
+        
+        self.todayTraffic.views++;
+        weeklyToday.views++;
+        monthlyToday.views++;
+        
+        // TODO: Update our graph
+    }
+}
+
+- (void)pusher:(PTPusher *)pusher didReceiveErrorEvent:(PTPusherErrorEvent *)errorEvent
+{
+    NSLog(@"An error occurred...");
 }
 
 @end
